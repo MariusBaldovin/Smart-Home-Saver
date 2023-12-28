@@ -1,0 +1,52 @@
+.not__found_container {
+    background-color: #E8E8E8;
+    height: 100vh;
+    color: black;
+}
+
+.not__found-page {
+    font-size: 50px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+.not__found-message {
+    font-size: 35px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: #4CAF50;
+}
+
+.back__home {
+
+
+    font-size: 40px;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+}
+
+
+
+.home-button {
+    padding: 0.5rem 1rem;
+    border: 2px solid;
+    border-color: #5a795c;
+
+    color: #5b795c;
+
+    text-decoration: none;
+
+    border-radius: 20px;
+
+}
+
+.home-button:hover {
+    color: #4CAF50;
+    transition: fill ease-in 0.3s;
+}

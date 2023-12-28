@@ -1,0 +1,136 @@
+.sign-in-body {
+    background-color: #E8E8E8;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin-form {
+    background: linear-gradient(180deg, rgba(84.87, 123.23, 116.33, 0.5) 0%, rgba(62, 195, 171.06, 0) 100%);
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+    padding: 20px;
+    width: 50%;
+    border-radius: 16px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.signin-form h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signin-form label {
+    display: block;
+}
+
+.signin-form input,
+.signin-form button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: none;
+}
+
+.signin-form input[type="email"],
+.signin-form input[type="password"] {
+    margin-bottom: 20px;
+}
+
+.error {
+    color: #af1904;
+    font-size: 12px;
+    position: absolute;
+    right: 10px;
+    top: 35%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.error_empty-field {
+    color: #af1904;
+    font-size: 12px;
+    position: absolute;
+    left: 10px;
+    top: 35%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.name-error {
+    position: relative;
+}
+
+/* Customize button styles */
+button[type="submit"] {
+    width: 200px;
+    background-color: #04af04;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: white;
+    color: #af1904;
+}
+
+button.google {
+    width: 300px;
+    background-color: #29578D;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.google:hover {
+    background-color: white;
+    color: green;
+}
+
+button.facebook {
+    width: 300px;
+    background-color: #498d29;
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.facebook:hover {
+    background-color: white;
+    color: #3b5998;
+}
+
+/* Style for the "Sign up" link */
+.signin-form .message a {
+    color: #4CAF50;
+    /* Set the initial link color to yellow */
+    transition: color 0.3s;
+    /* Add a transition for smooth color change */
+}
+
+/* Style for the "Sign up" link on hover */
+.signin-form .message a:hover {
+    color: #af1904;
+    /* Change to #af1904 on hover */
+}
+
+/* For tablet screens */
+@media (max-width: 768px) {
+    .signin-form {
+        width: 70%;
+        /* Adjust the form width for tablets */
+    }
+}
+
+/* For mobile screens */
+@media (max-width: 480px) {
+    .signin-form {
+        width: 90%;
+        /* Adjust the form width for mobiles */
+    }
+}

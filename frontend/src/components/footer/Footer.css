@@ -1,0 +1,63 @@
+.smart-home__footer {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: #5B795C;
+    justify-content: center;
+
+}
+
+.smart__home {
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    text-align: center;
+}
+
+.smart-home__share {
+    margin-bottom: 20px;
+}
+
+.smart__home .text-wrapper {
+    color: #ffffff;
+}
+
+.smart__home .span {
+    color: #4CAF50;
+}
+
+.smart-home__social {
+    display: flex;
+    justify-content: center;
+
+}
+
+/* Style for the social media icons */
+
+.social__media-icon {
+    fill: white;
+    width: 32px;
+    margin: 0 3px;
+}
+
+.social__media-icon:hover {
+    fill: #af1904;
+    transition: fill ease-in 0.3s;
+}
+
+@media (max-width: 600px) {
+
+    .smart-home__footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .smart__home {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+
+
+}

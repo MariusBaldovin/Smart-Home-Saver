@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  NavBar,
+  Footer,
+  Automation,
+  Chat,
+  Devices,
+  Home,
+  NotFound,
+  SavingTips,
+  AboutUs,
+  SignUp,
+  SignIn,
+} from "./components/index";
+import "./App.css";
+import { AuthContextProvider } from "./context/Authcontext";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+      <Router>
+        <AuthContextProvider>
+          <NavBar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/Devices" element={<Devices />} />
+            <Route path="/Automation" element={<Automation />} />
+            <Route path="/SavingTips" element={<SavingTips />} />
+            <Route path="/Chat" element={<Chat />} />
+            <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/SignIn" element={<SignIn />} />
+            // Catch all unmatched routes
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AuthContextProvider>
 
+        <Footer />
+      </Router>
+    </>
+  );
+};
 export default App;
