@@ -1,17 +1,19 @@
-import React from "react";
+import { React, useState } from "react";
 import "./Automation.css";
 import Frame from "../../components/frame/Frame";
 import Location from "../../components/location/Location";
+import Weather from "../../components/weather/Weather";
 const Automation = () => {
+  const [coordinates, setCoordinates] = useState(null);
   return (
     <div className="my-account-container">
       <Frame id="frame1" title="My Location">
         <p>
-          <Location />
+          <Location onCoordinates={setCoordinates} />
         </p>
       </Frame>
-      <Frame id="frame2" title="Frame 2">
-        <p>Content for frame 2...</p>
+      <Frame id="frame2" title="Weather">
+        <p>{coordinates && <Weather coordinates={coordinates} />}</p>
       </Frame>
       <Frame id="frame3" title="Frame 3">
         <p>Content for frame3...</p>

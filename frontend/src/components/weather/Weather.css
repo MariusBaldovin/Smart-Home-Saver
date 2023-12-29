@@ -1,0 +1,24 @@
+.weather-card {
+
+    color: black;
+
+
+}
+
+.weather-header {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-bottom: none;
+}
+
+.weather-title {
+    font-size: 1.5rem;
+}
+
+.weather-text {
+    font-size: 1.2rem;
+}
+
+.weather-footer {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-top: none;
+}

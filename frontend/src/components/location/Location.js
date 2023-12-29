@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Location.css";
 
-const Location = (/*{onCoordinates }*/) => {
+const Location = ({ onCoordinates }) => {
   const [location, setLocation] = useState({
     loaded: false,
     coordinates: { lat: "", lng: "" },
@@ -10,7 +10,7 @@ const Location = (/*{onCoordinates }*/) => {
 
   const onSuccess = async (location) => {
     const { latitude, longitude } = location.coords;
-    //onCoordinates({ lat: latitude, lng: longitude });
+    onCoordinates({ lat: latitude, lng: longitude });
 
     const address = await fetchAddress(latitude, longitude);
 

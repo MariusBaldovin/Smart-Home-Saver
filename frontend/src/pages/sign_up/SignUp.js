@@ -6,14 +6,10 @@ import { useAuth } from "../../context/Authcontext";
 import "./SignUp.css";
 
 const SignUp = () => {
-  /*firebase authentication using email and password*/
-
   const [name, setName] = useState("");
   const [nameErrors, setNameErrors] = useState({});
   const [email, setEmail] = useState("");
   const [emailErrors, setEmailErrors] = useState({});
-  const [studentNumber, setStudentNumber] = useState("");
-  const [studentNumberErrors, setStudentNumberErrors] = useState({});
   const [password, setPassword] = useState("");
   const [passwordErrors, setPasswordErrors] = useState({});
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -47,19 +43,6 @@ const SignUp = () => {
       });
     } else {
       setEmailErrors({});
-    }
-  };
-
-  //student number error on the right side of input box in real time if student number is not 8 digits
-  const handleStudentNumberChange = (e) => {
-    setStudentNumber(e.target.value);
-
-    if (!/^\d{8}$/.test(e.target.value)) {
-      setStudentNumberErrors({
-        invalid: "Student Number must be exactly 8 digits",
-      });
-    } else {
-      setStudentNumberErrors({});
     }
   };
 
