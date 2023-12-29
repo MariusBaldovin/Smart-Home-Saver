@@ -1,38 +1,15 @@
 .saving-tips-container {
+    background-color: #E8E8E8;
     padding: 20px;
-    max-width: 800px;
-    /* Adjust as needed */
-    margin: auto;
-    /* Center the container */
-    background-color: #f8f8f8;
-    /* Light background color */
-    border-radius: 10px;
-    /* Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
+
 }
 
 .saving-tips-header {
     text-align: center;
-    color: #5b795c;
-    /* Theme color */
+    color: #646c83;
     margin-bottom: 20px;
 }
 
-.saving-tips-list {
-    list-style: none;
-    /* Remove default list styling */
-    padding: 0;
+.left-align-title h2 {
+    text-align: left;
 }
-
-.saving-tip {
-    background-color: white;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    color: #333;
-    /* Dark text for readability */
-}
-
-/* Add more styles as needed */

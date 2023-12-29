@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import homeLogo from "../../assets/home.png";
 import Question from "../../components/question/Question";
-import Recommendations from "../../components/recommendation/Recommendations";
+import Recommendations from "../../components/recommendations/Recommendations";
 
 const Home = () => {
   const [selectedAnswers, setSelectedAnswers] = useState({});

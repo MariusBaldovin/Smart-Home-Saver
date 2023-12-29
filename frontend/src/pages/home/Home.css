@@ -1,4 +1,5 @@
 .home-container {
+    background-color: #E8E8E8;
     display: flex;
     justify-content: space-between;
     padding: 20px;
