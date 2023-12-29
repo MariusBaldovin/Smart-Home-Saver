@@ -1,0 +1,13 @@
+/* Location.css */
+.location-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+
+.location-address {
+    color: #4CAF50;
+    /* Slightly darker blue for the address */
+    font-weight: bold;
+    font-size: 20px;
+}

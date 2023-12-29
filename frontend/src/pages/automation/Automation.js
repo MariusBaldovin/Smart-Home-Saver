@@ -1,11 +1,14 @@
 import React from "react";
 import "./Automation.css";
 import Frame from "../../components/frame/Frame";
+import Location from "../../components/location/Location";
 const Automation = () => {
   return (
     <div className="my-account-container">
-      <Frame id="frame1" title="Frame 1">
-        <p>Content for frame 1...</p>
+      <Frame id="frame1" title="My Location">
+        <p>
+          <Location />
+        </p>
       </Frame>
       <Frame id="frame2" title="Frame 2">
         <p>Content for frame 2...</p>
