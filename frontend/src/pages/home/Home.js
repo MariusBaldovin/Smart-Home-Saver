@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import homeLogo from "../../assets/home.png";
 import Question from "../../components/question/Question";
+import Recommendations from "../../components/recommendation/Recommendations";
 
 const Home = () => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
+  const navigate = useNavigate();
 
   const questions = [
     {
@@ -46,8 +49,8 @@ const Home = () => {
   };
 
   const handleSubmit = () => {
-    console.log("Selected Answers: ", selectedAnswers);
-    // Handle the submission of answers
+    const recommendations = Recommendations(selectedAnswers);
+    navigate("/SavingTips", { state: { recommendations } });
   };
 
   return (
