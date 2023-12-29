@@ -44,11 +44,13 @@ const Navbar = () => {
       <div className="smart-home__navbar-sign">
         {currentUser ? ( // Check if the user is logged in
           <>
-            <img
-              src={currentUser.photoURL || "../../assets/avatar.jpg"}
-              alt="User"
-              className="user-profile-picture"
-            />
+            <NavLink to="/MyAccount">
+              <img
+                src={currentUser.photoURL || require("../../assets/avatar.jpg")}
+                alt="User"
+                className="user-profile-picture"
+              />
+            </NavLink>
             <button onClick={signOut}>Sign Out</button>
           </>
         ) : (
@@ -101,11 +103,16 @@ const Navbar = () => {
             <div className="smart-home__navbar-menu_container-links-sign">
               {currentUser ? ( // Check if the user is logged in for mobile version
                 <>
-                  <img
-                    src={currentUser.photoURL || "../../assets/avatar.jpg"}
-                    alt="User"
-                    className="user-profile-picture"
-                  />
+                  <NavLink to="/MyAccount">
+                    <img
+                      src={
+                        currentUser.photoURL ||
+                        require("../../assets/avatar.jpg")
+                      }
+                      alt="User"
+                      className="user-profile-picture"
+                    />
+                  </NavLink>
                   <button onClick={signOut}>Sign Out</button>
                 </>
               ) : (

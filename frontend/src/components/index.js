@@ -10,3 +10,4 @@ export { default as NotFound } from "../pages/not_found/NotFound";
 export { default as SavingTips } from "../pages/saving_tips/SavingTips";
 export { default as SignIn } from "../pages/sign_in/SignIn";
 export { default as SignUp } from "../pages/sign_up/SignUp";
+export { default as MyAccount } from "../pages/my_account/MyAccount";

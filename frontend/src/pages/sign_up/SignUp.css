@@ -1,6 +1,6 @@
 /* Set the background to cover the entire screen */
 .sign_up-body {
-    background-image: url("../../assets/SignUp-background.jpg");
+    background-color: #E8E8E8;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -12,14 +12,13 @@
 }
 
 .signup-form {
-    background: rgba(0, 0, 0, 0.7);
-    /* Added a semi-transparent background color to the form */
-    color: white;
+    background: linear-gradient(180deg, rgba(84.87, 123.23, 116.33, 0.5) 0%, rgba(62, 195, 171.06, 0) 100%);
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
     padding: 20px;
     width: 50%;
-    border-radius: 10px;
+    border-radius: 16px;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
-    /* Added a shadow for depth */
     text-align: center;
 }
 

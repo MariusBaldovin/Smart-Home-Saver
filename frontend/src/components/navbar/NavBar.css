@@ -39,6 +39,13 @@
     align-items: center;
 }
 
+.smart-home__navbar-sign a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .smart-home__navbar-sign p:hover {
     color: #4CAF50;
     transition: fill ease-in 0.3s;
@@ -55,12 +62,6 @@
     text-transform: capitalize;
     margin: 0 1rem;
     cursor: pointer;
-}
-
-.smart-home__navbar-sign p.welcome-name {
-    font-size: 20px;
-    color: #caca07;
-    /* Adjust the font size as needed */
 }
 
 .smart-home__navbar-sign button,

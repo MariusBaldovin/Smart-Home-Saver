@@ -10,6 +10,7 @@ import {
   NotFound,
   SavingTips,
   AboutUs,
+  MyAccount,
   SignUp,
   SignIn,
 } from "./components/index";
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/SignUp" element={<SignUp />} />
             <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/MyAccount" element={<MyAccount />} />
             // Catch all unmatched routes
             <Route path="*" element={<NotFound />} />
           </Routes>

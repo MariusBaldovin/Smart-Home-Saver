@@ -108,13 +108,6 @@ const SignUp = () => {
       errors.email = "";
     }
 
-    // Student Number validation logic
-    if (!studentNumber) {
-      errors.studentNumber = "Student Number is required";
-    } else if (!/^\d{8}$/.test(studentNumber)) {
-      errors.studentNumber = "";
-    }
-
     // Password validation logic
     if (!password) {
       errors.password = "Password is required";
@@ -133,7 +126,7 @@ const SignUp = () => {
     // Check if there are no validation errors
     if (Object.keys(errors).length === 0) {
       try {
-        // Perform Firebase registration with name, email, student number, and password
+        // Perform Firebase registration with name, email, and password
         const userCredential = await createUserWithEmailAndPassword(
           auth,
           email,
@@ -211,26 +204,6 @@ const SignUp = () => {
           )}
           {emailErrors.invalid && (
             <p className="error">{emailErrors.invalid}</p>
-          )}
-        </div>
-
-        {/* Student Number Input and error handling */}
-        <div className="name-error">
-          <input
-            id="studentNumber-input"
-            type="text"
-            placeholder={
-              !studentNumber && !errors.studentNumber ? "Student Number" : ""
-            }
-            value={studentNumber}
-            onChange={handleStudentNumberChange}
-            className={studentNumberErrors.invalid ? "input-error" : ""}
-          />
-          {!studentNumber && errors.studentNumber && (
-            <p className="error_empty-field">{errors.studentNumber}</p>
-          )}
-          {studentNumberErrors.invalid && (
-            <p className="error">{studentNumberErrors.invalid}</p>
           )}
         </div>
 

@@ -41,7 +41,7 @@
 }
 
 .social__media-icon:hover {
-    fill: #af1904;
+    fill: #4CAF50;
     transition: fill ease-in 0.3s;
 }
 
