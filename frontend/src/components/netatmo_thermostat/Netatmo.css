@@ -1,0 +1,51 @@
+.app-container {
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.login-logout-button {
+
+    height: 26px;
+    width: 111px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #5b795c;
+    border: 2px solid;
+    border-color: #5a795c;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-logout-button:hover {
+    background-color: #4CAF50;
+    color: #E8E8E8;
+}
+
+.temperature-data {
+    background-color: white;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.temperature-data p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+select {
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+p {
+    color: #666;
+}
