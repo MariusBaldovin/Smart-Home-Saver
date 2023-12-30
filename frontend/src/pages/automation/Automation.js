@@ -24,12 +24,6 @@ const Automation = () => {
       <Frame id="frame4" title="Thermostat Control Panel">
         <Netatmo />
       </Frame>
-      <Frame id="frame5" title="Frame 5">
-        <>Content for frame 5...</>
-      </Frame>
-      <Frame id="frame6" title="Frame 6">
-        <>Content for frame 6...</>
-      </Frame>
     </div>
   );
 };

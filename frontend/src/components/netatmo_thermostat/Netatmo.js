@@ -23,7 +23,7 @@ const Netatmo = () => {
 
   // useEffect hook to handle authentication and token retrieval
   useEffect(() => {
-    const storedToken = localStorage.getItem("netatmo_token");
+    const storedToken = sessionStorage.getItem("netatmo_token");
     if (storedToken) {
       setIsAuthenticated(true);
       fetchHomes(storedToken);
@@ -33,9 +33,11 @@ const Netatmo = () => {
       const token = urlParams.get("token");
 
       if (token) {
-        localStorage.setItem("netatmo_token", token); // Save to localStorage
+        sessionStorage.setItem("netatmo_token", token);
         setIsAuthenticated(true);
         fetchHomes(token);
+      } else {
+        setIsLoading(false);
       }
     }
   }, []);
@@ -64,7 +66,7 @@ const Netatmo = () => {
   // useEffect hook to fetch temperature data when selectedHomeId changes
   useEffect(() => {
     if (selectedHomeId) {
-      const token = localStorage.getItem("netatmo_token");
+      const token = sessionStorage.getItem("netatmo_token");
       fetchTemperature(token, selectedHomeId);
     }
   }, [selectedHomeId]);
@@ -87,6 +89,13 @@ const Netatmo = () => {
       });
   };
 
+  useEffect(() => {
+    if (selectedHomeId) {
+      const token = sessionStorage.getItem("netatmo_token");
+      fetchTemperature(token, selectedHomeId);
+    }
+  }, [selectedHomeId]);
+
   // Function to handle home selection change
   const handleHomeSelection = (e) => {
     setSelectedHomeId(e.target.value);
@@ -94,7 +103,7 @@ const Netatmo = () => {
 
   const handleLoginLogout = () => {
     if (isAuthenticated) {
-      localStorage.removeItem("netatmo_token");
+      sessionStorage.removeItem("netatmo_token");
       setIsAuthenticated(false);
     } else {
       window.location.href = "http://localhost:3001/auth/netatmo";
@@ -112,16 +121,32 @@ const Netatmo = () => {
   }
 
   return (
-    <div className="app-container">
-      {temperature && (
-        <div>
-          <p>Actual Temperature: {temperature.measured}°C</p>
-          <p>Desired Temperature : {temperature.setpoint}°C</p>
-          <p>Boiler Status: {temperature.boilerStatus ? "On" : "Off"}</p>
-          <p>Any windows open?: {temperature.openWindow ? "Yes" : "No"}</p>
-          <p>Battery State: {temperature.batteryState}</p>
-        </div>
+    <div className="netatmo-container">
+      {isAuthenticated && (
+        <>
+          {temperature && (
+            <div>
+              <p>
+                Actual Temperature: {temperature[0].therm_measured_temperature}
+                °C
+              </p>
+              <p>
+                Desired Temperature :{" "}
+                {temperature[0].therm_setpoint_temperature}°C
+              </p>
+              <p>
+                Boiler Status:{" "}
+                {temperature[0].heating_power_request ? "On" : "Off"}
+              </p>
+              <p>
+                Any windows open?: {temperature[0].open_window ? "Yes" : "No"}
+              </p>
+              <p>Battery State: {temperature[0].battery_state}</p>
+            </div>
+          )}
+        </>
       )}
+
       <button onClick={handleLoginLogout} className="login-logout-button">
         {isAuthenticated ? "Logout" : "Login with Netatmo"}
       </button>

@@ -1,4 +1,4 @@
-.app-container {
+.netatmo-container {
     margin: 0 auto;
     padding: 20px;
     text-align: center;
@@ -6,9 +6,9 @@
 
 .login-logout-button {
 
-    height: 26px;
+    height: 40px;
     width: 111px;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 700;
     color: #5b795c;
     border: 2px solid;
@@ -23,29 +23,21 @@
     color: #E8E8E8;
 }
 
-.temperature-data {
-    background-color: white;
-    padding: 15px;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-.temperature-data p {
-    margin: 10px 0;
-    font-size: 16px;
+.netatmo-container p {
+    font-size: 1.1em;
+    /* Slightly larger font for better readability */
     color: #333;
-}
-
-select {
-    padding: 10px;
-    margin-top: 20px;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-}
-
-p {
-    color: #666;
+    /* Dark grey color for text */
+    margin-bottom: 10px;
+    /* Space between paragraphs */
+    padding: 8px 12px;
+    /* Padding for a better visual */
+    border-left: 4px solid #4CAF50;
+    /* A colored line on the left for modern design */
+    background-color: #f4f4f4;
+    /* Light background color */
+    border-radius: 4px;
+    /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Subtle box shadow for depth */
 }
