@@ -5,24 +5,100 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-
-
 }
 
 /* Styling the Chat Box */
 .chat-box {
+    border-style: solid;
+    border-color: #5B795C;
     border-radius: 10px;
     margin: 20px;
     width: 900px;
     max-height: 600px;
     filter: drop-shadow(16px 16px 20px #5B795C);
+}
+
+.cs-message-list {
+    padding: 20px;
+}
+
+
+/* Chat Header*/
+.cs-conversation-header {
+    background-color: #124635;
+}
+
+.cs-conversation-header *,
+.cs-conversation-header *::before,
+.cs-conversation-header *::after {
+    background-color: #124635 !important;
+    color: white !important;
+}
+
+/* Incoming messages */
+.cs-message--incoming .cs-message__content {
+    background-color: #c0e4c3;
+}
+
+/* Outgoing messages */
+.cs-message--outgoing .cs-message__content {
+    background-color: #5b906a;
+
+
+}
+
+/* messages text color  */
+.cs-message--incoming .cs-message__content,
+.cs-message--outgoing .cs-message__content {
+    color: #333;
+
 
 }
 
 .cs-message-input__content-editor-wrapper,
 .cs-message-input__content-editor {
-    background-color: #cadfcb;
-    opacity: 0.5;
-    color: black;
+    background-color: #c0e4c3;
+}
 
+.cs-message-input__content-editor-wrapper {
+    margin-left: 10px;
+}
+
+/* Send Button */
+.cs-message-input .cs-button.cs-button--send {
+    color: #124635 !important;
+
+}
+
+/* Send Button on Hover */
+.cs-message-input .cs-button.cs-button--send:hover {
+    color: #0f3729 !important;
+
+}
+
+/* Hide Attachment Icon */
+.cs-message-input__tools .cs-button--attachment {
+    display: none !important;
+    /* Hide the attachment button */
+}
+
+
+/* Styling the scrollbar rail */
+.ps__rail-y {
+    background-color: #e6f4ea;
+    /* Light green for the rail */
+    opacity: 1;
+    /* Ensure it's always visible, adjust as needed */
+}
+
+/* Styling the scrollbar */
+.ps__thumb-y {
+    background-color: #124635;
+}
+
+/* Override the hover, focus, and clicking state of the scrollbar thumb */
+.ps__rail-y:hover>.ps__thumb-y,
+.ps__rail-y:focus>.ps__thumb-y,
+.ps__rail-y.ps--clicking .ps__thumb-y {
+    background-color: #a8d5a0 !important;
 }

@@ -6,6 +6,7 @@ import {
   MessageInput,
   MainContainer,
   TypingIndicator,
+  ConversationHeader,
 } from "@chatscope/chat-ui-kit-react";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 import "./Chat.css";
@@ -86,6 +87,9 @@ const Chat = () => {
     <div className="chat-container">
       <MainContainer className="chat-box">
         <ChatContainer className="chat-message">
+          <ConversationHeader>
+            <ConversationHeader.Content userName="Smart Home Saver Chat" />
+          </ConversationHeader>
           <MessageList
             typingIndicator={
               typing ? (
