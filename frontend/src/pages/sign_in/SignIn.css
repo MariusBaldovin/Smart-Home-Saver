@@ -134,11 +134,29 @@ button.facebook svg {
 
 }
 
-/* Style for the "Sign up" link on hover */
+/* Style for the "Sign Up" link on hover */
 .signin-form .message a:hover {
+    color: #29578D;
+}
+
+/* Style for the "Forgot password" link */
+#forgot a {
+    color: #4CAF50;
+    transition: color 0.3s;
+}
+
+/* Style for the "Forgot password" link on hover */
+#forgot a:hover {
     color: #29578D;
 
 }
+
+#forgot {
+    text-align: left;
+}
+
+
+
 
 /* For tablet screens */
 @media (max-width: 768px) {

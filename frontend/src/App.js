@@ -13,6 +13,7 @@ import {
   MyAccount,
   SignUp,
   SignIn,
+  ResetPassword,
 } from "./components/index";
 import "./App.css";
 import { AuthContextProvider } from "./context/Authcontext";
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/SignUp" element={<SignUp />} />
             <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/ResetPassword" element={<ResetPassword />} />
             <Route path="/MyAccount" element={<MyAccount />} />
             // Catch all unmatched routes
             <Route path="*" element={<NotFound />} />

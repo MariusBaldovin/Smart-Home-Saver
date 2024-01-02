@@ -132,8 +132,8 @@ const SignIn = () => {
             <p className="error">{passwordErrors.minLength}</p>
           )}
         </div>
-        <p className="forgot-password">
-          <NavLink to="/">Forgot password?</NavLink>
+        <p id="forgot">
+          <NavLink to="/ResetPassword">Forgot password?</NavLink>
         </p>
 
         <button className="login" type="submit">

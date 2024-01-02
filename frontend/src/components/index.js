@@ -11,3 +11,4 @@ export { default as SavingTips } from "../pages/saving_tips/SavingTips";
 export { default as SignIn } from "../pages/sign_in/SignIn";
 export { default as SignUp } from "../pages/sign_up/SignUp";
 export { default as MyAccount } from "../pages/my_account/MyAccount";
+export { default as ResetPassword } from "../pages/reset_password/ResetPassword";
