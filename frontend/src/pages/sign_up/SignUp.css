@@ -1,5 +1,5 @@
 /* Set the background to cover the entire screen */
-.sign_up-body {
+.sign_up-container {
     background-color: #E8E8E8;
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,8 +29,6 @@
 
 .signup-form label {
     display: block;
-
-
 
 }
 
@@ -68,51 +66,73 @@
 }
 
 /* register button styles */
-button[type="submit"] {
-    background-color: #af1904;
-    color: white;
+button.register {
+    height: 40px;
+    width: 111px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #5b795c;
+    border: 2px solid;
+    border-color: #5a795c;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
 
-button[type="submit"]:hover {
-    background-color: white;
-    color: #af1904;
+button.register:hover {
+    background-color: #4CAF50;
+    color: #E8E8E8;
 }
 
 /* Style for the "Sign in" link */
 .signup-form .message a {
-    color: #caca07;
-    /* Set the initial link color to yellow */
+    color: #4CAF50;
     transition: color 0.3s;
-    /* Add a transition for smooth color change */
 }
 
 /* Style for the "Sign in" link on hover */
 .signup-form .message a:hover {
-    color: #af1904;
-    /* Change to #af1904 on hover */
+    color: #29578D;
 }
 
 button.google {
-    background-color: green;
+    width: 300px;
+    background-color: #29578D;
     color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 button.google:hover {
     background-color: white;
-    color: green;
+    color: #29578D;
 }
 
 button.facebook {
-    background-color: blue;
+    width: 300px;
+    background-color: #29578D;
     color: white;
+    cursor: pointer;
+    border-radius: 20px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 button.facebook:hover {
     background-color: white;
-    color: blue;
+    color: #29578D;
+}
+
+button.google svg,
+button.facebook svg {
+    margin-right: 80px;
+    /* Increase space between icon and text */
+    margin-left: -60px;
+    /* moving icon to the left */
 }
 
 
@@ -120,7 +140,11 @@ button.facebook:hover {
 @media (max-width: 768px) {
     .signup-form {
         width: 80%;
-        /* Adjust the width for tablets */
+    }
+
+    button.google,
+    button.facebook {
+        margin-right: 20px;
     }
 }
 

@@ -54,6 +54,7 @@ const Netatmo = () => {
         setIsLoading(false);
         if (response.data.length > 0) {
           setSelectedHomeId(response.data[0].id);
+          console.log("HOME ID IS:", response.data[0].id);
         }
       })
       .catch((error) => {

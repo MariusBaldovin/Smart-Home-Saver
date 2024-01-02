@@ -1,4 +1,4 @@
-.sign-in-body {
+.sign_in-container {
     background-color: #E8E8E8;
     background-size: cover;
     background-repeat: no-repeat;
@@ -69,61 +69,87 @@
 }
 
 /* Customize button styles */
-button[type="submit"] {
-    width: 200px;
-    background-color: #04af04;
-    color: white;
+button.login {
+    height: 40px;
+    width: 111px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #5b795c;
+    border: 2px solid;
+    border-color: #5a795c;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
 
-button[type="submit"]:hover {
-    background-color: white;
-    color: #af1904;
+button.login:hover {
+    background-color: #4CAF50;
+    color: #E8E8E8;
 }
 
 button.google {
     width: 300px;
     background-color: #29578D;
     color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 button.google:hover {
     background-color: white;
-    color: green;
+    color: #29578D;
 }
 
 button.facebook {
     width: 300px;
-    background-color: #498d29;
+    background-color: #29578D;
     color: white;
+    cursor: pointer;
+    border-radius: 20px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 button.facebook:hover {
     background-color: white;
-    color: #3b5998;
+    color: #29578D;
+}
+
+button.google svg,
+button.facebook svg {
+    margin-right: 80px;
+    /* Increase space between icon and text */
+    margin-left: -60px;
+    /* Shift icon to the left */
 }
 
 /* Style for the "Sign up" link */
 .signin-form .message a {
     color: #4CAF50;
-    /* Set the initial link color to yellow */
     transition: color 0.3s;
-    /* Add a transition for smooth color change */
+
 }
 
 /* Style for the "Sign up" link on hover */
 .signin-form .message a:hover {
-    color: #af1904;
-    /* Change to #af1904 on hover */
+    color: #29578D;
+
 }
 
 /* For tablet screens */
 @media (max-width: 768px) {
     .signin-form {
         width: 70%;
-        /* Adjust the form width for tablets */
+
+    }
+
+    button.google,
+    button.facebook {
+        margin-right: 20px;
     }
 }
 
@@ -131,6 +157,6 @@ button.facebook:hover {
 @media (max-width: 480px) {
     .signin-form {
         width: 90%;
-        /* Adjust the form width for mobiles */
+
     }
 }

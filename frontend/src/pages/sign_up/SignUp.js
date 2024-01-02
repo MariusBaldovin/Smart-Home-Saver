@@ -3,6 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"; // Import the createUserWithEmailAndPassword function
 import { auth } from "../../firebase/Firebase"; // Import your Firebase authentication instance
 import { useAuth } from "../../context/Authcontext";
+import { FaGoogle } from "react-icons/fa";
+import { BsFacebook } from "react-icons/bs";
 import "./SignUp.css";
 
 const SignUp = () => {
@@ -150,7 +152,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="sign_up-body">
+    <div className="sign_up-container">
       <form className="signup-form" onSubmit={handleSubmit} noValidate>
         <h1>Sign Up</h1>
 
@@ -229,14 +231,18 @@ const SignUp = () => {
             <p className="error">{confirmPasswordErrors.mismatch}</p>
           )}
         </div>
-        <button type="submit">Register</button>
+        <button className="register" type="submit">
+          Register
+        </button>
         <p className="message">
           Already have an account? <NavLink to="/SignIn">Sign in</NavLink>
         </p>
         <button className="google" onClick={handleGoogleSignIn}>
+          <FaGoogle />
           Login with Google
         </button>
         <button className="facebook" onClick={handleFacebookSignIn}>
+          <BsFacebook />
           Login with Facebook
         </button>
       </form>

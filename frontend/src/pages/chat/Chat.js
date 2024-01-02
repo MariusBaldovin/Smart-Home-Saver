@@ -10,8 +10,6 @@ import {
 } from "@chatscope/chat-ui-kit-react";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 
-const OPENAI_API_KEY = "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";
-
 const Chat = () => {
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState([
@@ -59,7 +57,7 @@ const Chat = () => {
         {
           method: "POST",
           headers: {
-            Authorization: `Bearer ${OPENAI_API_KEY}`,
+            Authorization: `Bearer ${process.env.REACT_APP_OPEN_API_KEY}`,
             "Content-Type": "application/json",
           },
           body: JSON.stringify(apiRequestBody),

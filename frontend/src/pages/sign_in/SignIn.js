@@ -3,6 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth"; // Import the signInWithEmailAndPassword function
 import { useAuth } from "../../context/Authcontext"; // Import the useAuth hook for authentication
 import "./SignIn.css";
+import { FaGoogle } from "react-icons/fa";
+import { BsFacebook } from "react-icons/bs";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -92,7 +94,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="sign-in-body">
+    <div className="sign_in-container">
       <form className="signin-form" onSubmit={handleSubmit} noValidate>
         <h1>Sign In</h1>
         {/* Email Input and error handling */}
@@ -130,18 +132,25 @@ const SignIn = () => {
             <p className="error">{passwordErrors.minLength}</p>
           )}
         </div>
+        <p className="forgot-password">
+          <NavLink to="/">Forgot password?</NavLink>
+        </p>
 
-        <button type="submit">Login</button>
+        <button className="login" type="submit">
+          Login
+        </button>
 
         <p className="message">
           Don't have an account? <NavLink to="/SignUp">Sign up</NavLink>
         </p>
 
         <button className="google" onClick={handleGoogleSignIn}>
+          <FaGoogle />
           Login with Google
         </button>
 
         <button className="facebook" onClick={handleFacebookSignIn}>
+          <BsFacebook />
           Login with Facebook
         </button>
       </form>

@@ -3,10 +3,37 @@
     text-align: center;
 }
 
+.location-container button {
+    height: 40px;
+    width: 111px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #5b795c;
+    border: 2px solid;
+    border-color: #5a795c;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+
+}
+
+.location-container button:hover {
+    background-color: #4CAF50;
+    color: #E8E8E8;
+}
 
 .location-address {
     color: #4CAF50;
-    /* Slightly darker blue for the address */
     font-weight: bold;
     font-size: 20px;
+}
+
+
+.address-input {
+    width: 40%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
 }
