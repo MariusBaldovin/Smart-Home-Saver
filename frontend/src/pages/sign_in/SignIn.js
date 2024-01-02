@@ -98,6 +98,7 @@ const SignIn = () => {
       <form className="signin-form" onSubmit={handleSubmit} noValidate>
         <h1>Sign In</h1>
         {/* Email Input and error handling */}
+        <h2>Name *</h2>
         <div className="name-error">
           <input
             id="email-input"
@@ -114,7 +115,7 @@ const SignIn = () => {
             <p className="error">{emailErrors.invalid}</p>
           )}
         </div>
-
+        <h2>Password *</h2>
         {/* Password Input and error handling */}
         <div className="name-error">
           <input

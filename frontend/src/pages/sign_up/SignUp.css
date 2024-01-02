@@ -135,6 +135,12 @@ button.facebook svg {
     /* moving icon to the left */
 }
 
+.signup-form h2 {
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: #646c83;
+}
 
 /* Add styles for tablet (e.g., iPad) */
 @media (max-width: 768px) {

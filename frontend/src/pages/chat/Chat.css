@@ -18,3 +18,11 @@
     filter: drop-shadow(16px 16px 20px #5B795C);
 
 }
+
+.cs-message-input__content-editor-wrapper,
+.cs-message-input__content-editor {
+    background-color: #cadfcb;
+    opacity: 0.5;
+    color: black;
+
+}

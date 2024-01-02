@@ -57,11 +57,7 @@ const Home = () => {
     <div className="home-container">
       <div className="left-panel">
         <h2>Welcome to your smart energy saving</h2>
-        <img
-          src={homeLogo} // Replace with your image path
-          alt="3D Effect"
-          className="home_image"
-        />
+        <img src={homeLogo} alt="3D Effect" className="home_image" />
       </div>
       <div className="right-panel">
         <h2>Help Us Personalise Your Smart Home Recommendations</h2>

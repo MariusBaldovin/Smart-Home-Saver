@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./Chat.css";
 import {
   ChatContainer,
   MessageList,
@@ -9,6 +8,7 @@ import {
   TypingIndicator,
 } from "@chatscope/chat-ui-kit-react";
 import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import "./Chat.css";
 
 const Chat = () => {
   const [typing, setTyping] = useState(false);
@@ -67,9 +67,7 @@ const Chat = () => {
       const data = await response.json();
       console.log(data);
 
-      // Extracting the AI response from the data
-      const aiResponseMessage = data.choices[0].message.content; // Adjust based on actual response structure
-
+      const aiResponseMessage = data.choices[0].message.content;
       const aiResponse = {
         message: aiResponseMessage,
         sender: "Smart Saver",

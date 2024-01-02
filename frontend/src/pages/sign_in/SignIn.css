@@ -24,6 +24,14 @@
 .signin-form h1 {
     text-align: center;
     margin-bottom: 30px;
+
+}
+
+.signin-form h2 {
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: #646c83;
 }
 
 .signin-form label {
@@ -154,9 +162,6 @@ button.facebook svg {
 #forgot {
     text-align: left;
 }
-
-
-
 
 /* For tablet screens */
 @media (max-width: 768px) {

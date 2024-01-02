@@ -157,6 +157,7 @@ const SignUp = () => {
         <h1>Sign Up</h1>
 
         {/* Name Input and error handling */}
+        <h2>Name *</h2>
         <div className="name-error">
           <input
             id="name-input"
@@ -175,6 +176,7 @@ const SignUp = () => {
         </div>
 
         {/* Email Input and error handling */}
+        <h2>Email *</h2>
         <div className="name-error">
           <input
             id="email-input"
@@ -193,6 +195,7 @@ const SignUp = () => {
         </div>
 
         {/* Password Input and error handling */}
+        <h2>Password *</h2>
         <div className="name-error">
           <input
             id="password-input"
@@ -211,6 +214,7 @@ const SignUp = () => {
         </div>
 
         {/* Confirm Password Input and error handling */}
+        <h2>Confirm Password *</h2>
         <div className="name-error">
           <input
             id="confirmPassword-input"
