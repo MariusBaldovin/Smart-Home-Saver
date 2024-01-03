@@ -5,9 +5,11 @@ import Location from "../../components/location/Location";
 import Weather from "../../components/weather/Weather";
 import Forecast from "../../components/forecast/Forecast";
 import Netatmo from "../../components/netatmo_thermostat/Netatmo";
+import ThermostatSchedule from "../../components/thermostat_schedule/ThermostatSchedule";
 
 const Automation = () => {
   const [coordinates, setCoordinates] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
   return (
     <div className="my-account-container">
       <Frame id="frame1" title="My Location">
@@ -19,7 +21,17 @@ const Automation = () => {
         <>{coordinates && <Weather coordinates={coordinates} />}</>
       </Frame>
       <Frame id="frame3" title="Forecast">
-        <>{coordinates && <Forecast coordinates={coordinates} />}</>
+        <>
+          {coordinates && (
+            <Forecast
+              coordinates={coordinates}
+              onForecastData={setForecastData}
+            />
+          )}
+        </>
+      </Frame>
+      <Frame id="frame4" title="Recommended Thermostat Temperature">
+        {forecastData && <ThermostatSchedule forecastData={forecastData} />}
       </Frame>
       <Frame id="frame4" title="Thermostat Control Panel">
         <Netatmo />

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Forecast.css";
 
-const Forecast = ({ coordinates }) => {
+const Forecast = ({ coordinates, onForecastData }) => {
   const [forecastData, setForecastData] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -32,7 +32,12 @@ const Forecast = ({ coordinates }) => {
           const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lng}&appid=${apiKey}&units=metric`;
 
           const response = await axios.get(url);
-          setForecastData(groupForecastByDay(response.data.list));
+          //setForecastData(groupForecastByDay(response.data.list));
+          const groupedData = groupForecastByDay(response.data.list);
+          setForecastData(groupedData);
+          if (onForecastData) {
+            onForecastData(groupedData); // Send data back up to the parent
+          }
         } catch (err) {
           setError(err.message);
         } finally {
@@ -42,7 +47,7 @@ const Forecast = ({ coordinates }) => {
 
       fetchForecastData();
     }
-  }, [coordinates]);
+  }, [coordinates, onForecastData]);
 
   if (loading) return <p>Loading forecast data...</p>;
   if (error) return <p>Error loading forecast data: {error}</p>;

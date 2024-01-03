@@ -1,6 +1,13 @@
 /* Overall chat container */
 .chat-container {
-    background-color: #E8E8E8;
+    background-image: url(../../assets/chat_background.jpg);
+    background-size: cover;
+    /* This will ensure that your image covers the entire element */
+    background-repeat: no-repeat;
+    /* This prevents the image from repeating */
+    background-position: center;
+    /* This centers your image in the element */
+
     display: flex;
     justify-content: center;
     align-items: center;
