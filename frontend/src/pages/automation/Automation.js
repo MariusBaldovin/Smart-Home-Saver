@@ -12,13 +12,18 @@ const Automation = () => {
   const [forecastData, setForecastData] = useState(null);
   return (
     <div className="my-account-container">
-      <Frame id="frame1" title="My Location">
-        <>
-          <Location onCoordinates={setCoordinates} />
-        </>
+      <Frame id="frame1" title="">
+        <div className="weather-frame">
+          <div className="location">
+            <Location onCoordinates={setCoordinates} />
+          </div>
+          <div className="weather">
+            {coordinates && <Weather coordinates={coordinates} />}
+          </div>
+        </div>
       </Frame>
-      <Frame id="frame2" title="Weather">
-        <>{coordinates && <Weather coordinates={coordinates} />}</>
+      <Frame id="frame2" title="Thermostat Control Panel">
+        <Netatmo />
       </Frame>
       <Frame id="frame3" title="Forecast">
         <>
@@ -32,9 +37,6 @@ const Automation = () => {
       </Frame>
       <Frame id="frame4" title="Recommended Thermostat Temperature">
         {forecastData && <ThermostatSchedule forecastData={forecastData} />}
-      </Frame>
-      <Frame id="frame4" title="Thermostat Control Panel">
-        <Netatmo />
       </Frame>
     </div>
   );

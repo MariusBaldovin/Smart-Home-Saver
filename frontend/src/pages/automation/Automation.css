@@ -1,10 +1,7 @@
 .my-account-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* Two columns */
     grid-template-rows: 1fr 1fr;
-    /* Two rows */
     gap: 20px;
-    /* Space between frames */
     padding: 20px;
 }

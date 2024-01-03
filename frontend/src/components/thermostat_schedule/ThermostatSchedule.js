@@ -34,7 +34,7 @@ const ThermostatSchedule = ({ forecastData }) => {
 
     // Convert availability times to hours for comparison
     const startHour = parseInt(availability.start.split(":")[0]);
-    const endHour = parseInt(availability.end.split(":")[0]) - 1; // Deduct 1 hour for warming up
+    const endHour = parseInt(availability.end.split(":")[0]) - 1; // Deduct 1 hour for warming up when
 
     forecasts.forEach((forecast) => {
       const forecastHour = new Date(forecast.dt * 1000).getHours();
