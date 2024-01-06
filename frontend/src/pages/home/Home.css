@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  min-height: 78.1vh;
+  min-height: calc(100vh - 160px);
 }
 
 .left-panel {
@@ -24,6 +24,10 @@
   margin-bottom: 10px;
   color: #646c83;
   text-transform: uppercase;
+}
+
+.left-align-title h2 {
+  text-align: left;
 }
 
 .left-panel h2 {
@@ -49,16 +53,14 @@
 
 
 
-/*Tablets responsiveness*/
+/*Tablets*/
 @media (min-width: 601px) and (max-width: 1024px) {
-  .home-container {
-    /* Adjust if needed for tablet-specific layout */
-  }
+  .home-container {}
 
   .left-panel,
   .right-panel {
     width: 100%;
-    /* Consider if you want to stack or keep side by side */
+
   }
 
   .home_image {
@@ -73,7 +75,7 @@
   }
 }
 
-/*Mobile phones responsiveness*/
+/*Mobile phones */
 @media (max-width: 600px) {
   .home-container {
     flex-direction: column;

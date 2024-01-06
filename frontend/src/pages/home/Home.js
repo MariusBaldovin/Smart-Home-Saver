@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./Home.css";
 import homeLogo from "../../assets/home.png";
 import Question from "../../components/question/Question";
 import Recommendations from "../../components/recommendations/Recommendations";
+import Frame from "../../components/frame/Frame";
 
 const Home = () => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
-  const navigate = useNavigate();
+  const [showRecommendations, setShowRecommendations] = useState(false);
+  const [recommendations, setRecommendations] = useState([]);
 
   const questions = [
     {
@@ -44,13 +45,26 @@ const Home = () => {
     },
   ];
 
+  const titles = [
+    "Smart Meter",
+    "Smart Thermostat",
+    "Smart Lights",
+    "Daily Routine",
+    "Washing Machine",
+  ];
+
   const handleSelect = (questionId, option) => {
     setSelectedAnswers({ ...selectedAnswers, [questionId]: option });
   };
 
   const handleSubmit = () => {
-    const recommendations = Recommendations(selectedAnswers);
-    navigate("/SavingTips", { state: { recommendations } });
+    const generatedRecommendations = Recommendations(selectedAnswers);
+    setRecommendations(generatedRecommendations);
+    setShowRecommendations(true);
+  };
+
+  const handleBack = () => {
+    setShowRecommendations(false);
   };
 
   return (
@@ -60,22 +74,43 @@ const Home = () => {
         <img src={homeLogo} alt="3D Effect" className="home_image" />
       </div>
       <div className="right-panel">
-        <h2>Help Us Personalise Your Smart Home Recommendations</h2>
-        <div className="survey">
-          {questions.map((question) => (
-            <Question
-              key={question.id}
-              id={question.id}
-              text={question.text}
-              options={question.options}
-              selectedAnswer={selectedAnswers[question.id]}
-              onSelect={handleSelect}
-            />
-          ))}
-        </div>
-        <button className="submit-button" onClick={handleSubmit}>
-          Submit
-        </button>
+        {showRecommendations ? (
+          <div>
+            <h2>Energy Saving Recommendations</h2>
+            {recommendations.map((tip, index) => (
+              <Frame
+                key={index}
+                id={`frame-${index}`}
+                title={titles[index]}
+                className="left-align-title"
+              >
+                <p>{tip}</p>
+              </Frame>
+            ))}
+            <button className="submit-button" onClick={handleBack}>
+              Go Back
+            </button>
+          </div>
+        ) : (
+          <>
+            <h2>Help Us Personalise Your Smart Home Recommendations</h2>
+            <div className="survey">
+              {questions.map((question) => (
+                <Question
+                  key={question.id}
+                  id={question.id}
+                  text={question.text}
+                  options={question.options}
+                  selectedAnswer={selectedAnswers[question.id]}
+                  onSelect={handleSelect}
+                />
+              ))}
+            </div>
+            <button className="submit-button" onClick={handleSubmit}>
+              Submit
+            </button>
+          </>
+        )}
       </div>
     </div>
   );
