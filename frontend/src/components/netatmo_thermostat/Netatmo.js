@@ -149,7 +149,7 @@ const Netatmo = () => {
       )}
 
       <button onClick={handleLoginLogout} className="login-logout-button">
-        {isAuthenticated ? "Logout" : "Login with Netatmo"}
+        {isAuthenticated ? "Logout with Netatmo" : "Login with Netatmo"}
       </button>
     </div>
   );

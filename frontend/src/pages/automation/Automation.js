@@ -11,8 +11,15 @@ import PhilipsHue from "../../components/philips_hue/PhilipsHue";
 const Automation = () => {
   const [coordinates, setCoordinates] = useState(null);
   const [forecastData, setForecastData] = useState(null);
+  const getFirstAndLastDates = (data) => {
+    const dates = Object.keys(data || {}).sort();
+    const firstDate = dates[0];
+    const lastDate = dates[dates.length - 1];
+    return { firstDate, lastDate };
+  };
+  const { firstDate, lastDate } = getFirstAndLastDates(forecastData);
   return (
-    <div className="my-account-container">
+    <div className="automation-container">
       <Frame id="frame1" title="">
         <div className="weather-frame">
           <div className="location">
@@ -26,7 +33,7 @@ const Automation = () => {
       <Frame id="frame2" title="Thermostat Control Panel">
         <Netatmo />
       </Frame>
-      <Frame id="frame3" title="Forecast">
+      <Frame id="frame3" title={`Forecast for ${firstDate} - ${lastDate}`}>
         <>
           {coordinates && (
             <Forecast
@@ -36,7 +43,10 @@ const Automation = () => {
           )}
         </>
       </Frame>
-      <Frame id="frame4" title="Recommended Thermostat Temperature">
+      <Frame
+        id="frame4"
+        title={`Create your Thermostat Schedule for ${firstDate} - ${lastDate}`}
+      >
         {forecastData && <ThermostatSchedule forecastData={forecastData} />}
       </Frame>
       <Frame id="frame4" title="philipshue">

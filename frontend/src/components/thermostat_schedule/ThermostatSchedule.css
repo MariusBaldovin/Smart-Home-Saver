@@ -2,9 +2,89 @@
     margin: 0 auto;
     max-width: 800px;
     padding: 15px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
+}
+
+.thermostat-schedule-container h1 {
+    font-size: 20px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* time interval selection */
+.time_interval-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/*time input */
+.time_input {
+    padding: 10px 15px;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    color: #333;
+    background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.time_input:focus {
+    outline: none;
+    border-color: #8fbc90;
+    box-shadow: 0 0 0 2px #5b795c;
+}
+
+/* Comfort temperature div*/
+.comfort-temperature-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.comfort-temperature-input input {
+    padding: 10px 15px;
+    width: 90px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin: 0 10px;
+}
+
+.comfort-temperature-input input:focus {
+    outline: none;
+    border-color: #8fbc90;
+    box-shadow: 0 0 0 2px #5b795c;
+}
+
+.comfort-temperature-input button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    border: 2px solid;
+    border-color: #5a795c;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comfort-temperature-input button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/*Removing spinners from comfort temperature input box*/
+/* For Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* For Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 /* comfort mode button selection*/
@@ -12,7 +92,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+
 }
 
 .schedule_button {
@@ -36,9 +116,30 @@
     color: #E8E8E8;
 }
 
+.schedule_button.active.saving-mode {
+    background-color: #4CAF50;
+    color: #E8E8E8;
+}
+
+.schedule_button.active.comfort-mode {
+    background-color: rgb(255, 156, 96);
+    color: #E8E8E8;
+}
+
 .recommend-container {
     margin: 0 auto;
     max-width: 800px;
+}
+
+.recommend-container h2 {
+    color: #042405;
+    text-align: center;
+    margin-top: 40px;
+
+}
+
+.recommend_schedule {
+    margin-top: 10px;
 }
 
 .recommend-container h4 {
@@ -73,6 +174,16 @@
     border-radius: 16px;
 }
 
+/*schedule mode colors*/
+.saving-mode {
+    background-color: #4CAF50;
+}
+
+.comfort-mode {
+    background-color: rgb(255, 156, 96);
+}
+
+
 .recommend-time {
     font-size: 0.9em;
     color: #666;
@@ -91,85 +202,19 @@
 
 
 
-/* Comfort temperature styling*/
 
-.comfort-temperature-input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
+/*Tablets*/
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .schedule_button {
+        font-size: 13px;
+    }
 }
 
-.comfort-temperature-input input {
-    width: 60px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 5px;
-    margin: 0 5px;
-}
+/*Mobile Phones*/
+@media (max-width: 600px) {
 
-.comfort-temperature-input button {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.comfort-temperature-input button:hover {
-    background-color: #e0e0e0;
-}
-
-/* time interval selection styling*/
-/* This styles the container of the time inputs */
-.time_interval-input {
-    display: flex;
-    /* Use flexbox for alignment */
-    justify-content: center;
-    /* Center children horizontally */
-    align-items: center;
-    /* Center children vertically */
-}
-
-/* Styling for each time input */
-.time_input {
-    padding: 10px 15px;
-    /* Add some padding */
-    margin: 0 10px;
-    /* Add margin between inputs */
-    border: 1px solid #ddd;
-    /* Light border for the inputs */
-    border-radius: 5px;
-    /* Slightly rounded corners */
-    color: #333;
-    /* Darker text for contrast */
-    background-color: #fff;
-    /* White background for the inputs */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Subtle shadow for depth */
-}
-
-/* Change the styling when the user interacts with the input */
-.time_input:focus {
-    outline: none;
-    /* Remove default focus outline */
-    border-color: #007bff;
-    /* Highlight color when focused */
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-
-}
-
-/*schedule mode colors*/
-.saving-mode {
-    background-color: #90ee90;
-    /* Light green shade */
-    /* Other styling as needed */
-}
-
-.comfort-mode {
-    background-color: #ffa07a;
-    /* Light orange shade */
-    /* Other styling as needed */
+    .schedule_button {
+        font-size: 11px;
+    }
 }

@@ -20,6 +20,12 @@
   width: 50%;
 }
 
+.right-panel h2 {
+  margin-bottom: 10px;
+  color: #646c83;
+  text-transform: uppercase;
+}
+
 .left-panel h2 {
   text-transform: uppercase;
   color: #646c83;
@@ -39,4 +45,59 @@
 .submit-button:hover {
   background-color: #4caf50;
   color: #ffffff;
+}
+
+
+
+/*Tablets responsiveness*/
+@media (min-width: 601px) and (max-width: 1024px) {
+  .home-container {
+    /* Adjust if needed for tablet-specific layout */
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    /* Consider if you want to stack or keep side by side */
+  }
+
+  .home_image {
+    width: 70%;
+    filter: drop-shadow(12px 12px 15px #5b795c);
+  }
+
+  .submit-button {
+    width: 120px;
+    font-size: 14px;
+    padding: 9px 18px;
+  }
+}
+
+/*Mobile phones responsiveness*/
+@media (max-width: 600px) {
+  .home-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    text-align: center;
+  }
+
+  .right-panel {
+    margin-top: 20px;
+  }
+
+  .home_image {
+    width: 90%;
+    filter: drop-shadow(8px 8px 10px #5b795c);
+  }
+
+  .submit-button {
+    width: 100px;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }

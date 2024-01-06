@@ -6,6 +6,7 @@ const ThermostatSchedule = ({ forecastData }) => {
   const [comfortTemperature, setComfortTemperature] = useState(15); // Default comfort temperature
   const [generatedSchedule, setGeneratedSchedule] = useState({});
   const [currentMode, setCurrentMode] = useState("comfort"); // Default current mode to "comfort"
+  const [activeButton, setActiveButton] = useState(null); // active schedule state
 
   const handleInputChange = (e) => {
     if (e.target.name === "comfortTemperature") {
@@ -25,8 +26,9 @@ const ThermostatSchedule = ({ forecastData }) => {
         mode
       );
     }
-    console.log(schedule); // Log the generated schedule
     setGeneratedSchedule(schedule);
+    setActiveButton(mode);
+    setCurrentMode(mode);
   };
 
   const createDailySchedule = (forecasts, availability, comfortTemp, mode) => {
@@ -68,7 +70,7 @@ const ThermostatSchedule = ({ forecastData }) => {
 
   return (
     <div className="thermostat-schedule-container">
-      <h3>Set time interval when nobody is home</h3>
+      <h1>Set the time interval when nobody is home</h1>
       <div className="time_interval-input">
         <input
           className="time_input"
@@ -87,7 +89,7 @@ const ThermostatSchedule = ({ forecastData }) => {
           placeholder="End Time"
         />
       </div>
-      <h3>Set your comfort temperature</h3>
+      <h1>Set your comfort temperature</h1>
       <div className="comfort-temperature-input">
         <button
           onClick={() => setComfortTemperature((prev) => Math.max(prev - 1, 0))}
@@ -99,36 +101,35 @@ const ThermostatSchedule = ({ forecastData }) => {
           name="comfortTemperature"
           value={comfortTemperature}
           onChange={handleInputChange}
-          placeholder="Comfort Temperature"
         />
         <button onClick={() => setComfortTemperature((prev) => prev + 1)}>
           +
         </button>
       </div>
+      <h1>Choose your schedule mode</h1>
       <div className="schedule_mode-buttons">
         <button
-          className="schedule_button"
-          onClick={() => {
-            setCurrentMode("comfort");
-            generateSchedule("comfort");
-          }}
+          className={`schedule_button ${
+            activeButton === "saving" ? "active saving-mode" : ""
+          }`}
+          onClick={() => generateSchedule("saving")}
+        >
+          Saving Mode Schedule
+        </button>
+        <button
+          className={`schedule_button ${
+            activeButton === "comfort" ? " active comfort-mode" : ""
+          }`}
+          onClick={() => generateSchedule("comfort")}
         >
           Comfort Mode Schedule
         </button>
-        <button
-          className="schedule_button"
-          onClick={() => {
-            setCurrentMode("saving");
-            generateSchedule("saving");
-          }}
-        >
-          Energy Saving Mode Schedule
-        </button>
       </div>
+
       <div className="recommend-container">
-        <h4>Your Thermostat Schedule Recommendation</h4>
+        <h2>Your Thermostat Schedule Recommendation</h2>
         {/* Displaying the generated schedule */}
-        <div>
+        <div className="recommend_schedule">
           {Object.entries(generatedSchedule).map(
             ([day, daySchedule], index) => (
               <div key={index} className="recommend_day">

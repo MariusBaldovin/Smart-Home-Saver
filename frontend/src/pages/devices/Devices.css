@@ -13,3 +13,27 @@
     flex-wrap: wrap;
 
 }
+
+/*Tablets*/
+@media (min-width: 601px) and (max-width: 1024px) {
+    .devices-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* Keep two columns */
+        gap: 15px;
+    }
+
+}
+
+
+/*Mobile Phones*/
+@media (max-width: 600px) {
+    .devices-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+
+    }
+
+    .products-container {
+        justify-content: center;
+    }
+}

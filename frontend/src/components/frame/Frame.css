@@ -4,12 +4,35 @@
     padding: 20px;
     background: linear-gradient(180deg, rgba(84.87, 123.23, 116.33, 0.5) 0%, rgba(62, 195, 171.06, 0) 100%);
     background-color: rgba(255, 255, 255, 1);
-
-
-
 }
 
-h2 {
+.title {
+    font-size: 30px;
     color: white;
     text-align: center;
+}
+
+/*Tablets*/
+@media (min-width: 601px) and (max-width: 1024px) {
+    .account-frame {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+}
+
+/*Mobile Phones*/
+@media (max-width: 600px) {
+    .account-frame {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .title {
+        font-size: 20px;
+
+    }
 }

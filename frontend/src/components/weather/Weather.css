@@ -1,37 +1,35 @@
 .weather-container {
-    width: 607px;
-    height: 529px;
+    width: auto;
+    height: auto;
     margin: auto;
-    margin-top: 75px;
+    padding: 20px;
+    margin-top: 10px;
     border-radius: 12px;
     background-color: #5b906a;
 }
 
 .weather-image {
-    margin-top: 20px;
     display: flex;
     justify-content: center;
-    padding: 10px;
+
+}
+
+.weather-image img {
+    width: 30%;
+    height: auto;
+
 }
 
 .weather-temperature {
     display: flex;
     justify-content: center;
     color: white;
-    font-size: 90px;
-    font-weight: 400;
-}
-
-.weather-location {
-    display: flex;
-    justify-content: center;
-    color: white;
-    font-size: 60px;
-    font-weight: 400;
+    font-size: 50px;
+    font-weight: 600;
 }
 
 .data-container {
-    margin-top: 50px;
+    margin-top: 30px;
     color: white;
     display: flex;
     justify-content: center;
@@ -45,16 +43,77 @@
 }
 
 .data {
-    font-size: 34px;
+    font-size: 25px;
     font-weight: 400;
 }
 
 .text {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 400;
 
 }
 
 .icon {
-    margin-top: 10px;
+    margin-top: 6px;
+}
+
+/*Tablets*/
+@media (min-width: 601px) and (max-width: 1024px) {
+    .weather-container {
+        width: 80%;
+        /* Adjust width to fit tablet screens */
+        height: auto;
+    }
+
+    .weather-temperature {
+        font-size: 70px;
+        /* Adjust font size for tablet screens */
+    }
+
+    .data {
+        font-size: 28px;
+    }
+
+    .text {
+        font-size: 18px;
+    }
+}
+
+/*Mobile Phones*/
+@media (max-width: 600px) {
+    .weather-container {
+        width: 90%;
+        height: auto;
+        margin-top: 20px;
+        padding: 10px;
+    }
+
+    .weather-image,
+    .weather-temperature,
+    .data-container {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .weather-image img {
+        width: 50%;
+        height: auto;
+    }
+
+    .element img {
+        width: 28%;
+        height: auto;
+    }
+
+    .weather-temperature {
+        font-size: 40px;
+    }
+
+    .data {
+        font-size: 15px;
+    }
+
+    .text {
+        font-size: 10px;
+    }
 }

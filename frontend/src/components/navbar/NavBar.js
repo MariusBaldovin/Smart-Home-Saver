@@ -101,7 +101,7 @@ const Navbar = () => {
               onClick={() => setToggleMenu(false)}
             />
             <div className="smart-home__navbar-menu_container-links">
-              {/* Menu links */}
+              {/* Phones and tablets menu links */}
               <p onClick={hideMenu}>
                 <NavLink to="/">Home</NavLink>
               </p>
@@ -125,6 +125,14 @@ const Navbar = () => {
             <div className="smart-home__navbar-menu_container-links-sign">
               {currentUser ? ( // Check if the user is logged in for mobile version
                 <>
+                  <NavLink className="link" to="/Cart">
+                    <FaShoppingCart
+                      size={24}
+                      style={{ marginLeft: 5 }}
+                      onClick={hideMenu}
+                    />
+                    <p>{totalQuantity}</p>
+                  </NavLink>
                   <NavLink to="/MyAccount">
                     <img
                       src={
@@ -139,6 +147,14 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
+                  <NavLink className="link" to="/Cart">
+                    <FaShoppingCart
+                      size={24}
+                      style={{ marginLeft: 5 }}
+                      onClick={hideMenu}
+                    />
+                    <p>{totalQuantity}</p>
+                  </NavLink>
                   <NavLink to="/SignIn">
                     <p onClick={hideMenu}>Log in</p>
                   </NavLink>

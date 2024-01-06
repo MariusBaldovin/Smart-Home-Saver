@@ -41,3 +41,19 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* Subtle box shadow for depth */
 }
+
+/*Tablets*/
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .login-logout-button {
+        font-size: 13px;
+    }
+}
+
+/*Mobile Phones*/
+@media (max-width: 600px) {
+
+    .login-logout-button {
+        font-size: 11px;
+    }
+}

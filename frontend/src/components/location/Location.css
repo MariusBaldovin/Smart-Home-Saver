@@ -24,9 +24,9 @@
 }
 
 .location-address {
-    color: #E8E8E8;
-    font-weight: bold;
-    font-size: 50px;
+    font-size: 30px;
+    color: white;
+    text-align: center;
 }
 
 
@@ -36,4 +36,21 @@
     border: 1px solid #ccc;
     border-radius: 4px;
 
+}
+
+/*Tablets*/
+@media (min-width: 601px) and (max-width: 1024px) {
+
+    .location-address {
+        font-size: 22px;
+    }
+}
+
+/*Mobile Phones*/
+@media (max-width: 600px) {
+
+    .location-address {
+        font-size: 20px;
+
+    }
 }
