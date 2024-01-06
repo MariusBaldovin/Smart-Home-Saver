@@ -4,13 +4,19 @@ import logo from "../../assets/logo.png";
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../context/Authcontext"; // Import the useAuth hook
+import { useCart } from "../../context/CartContext";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const { cart } = useCart();
   const { currentUser, signOut } = useAuth(); // Get the user's authentication status and signOut function
+
+  const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
+
   const hideMenu = () => {
     setToggleMenu(false);
-  }; // const to hide toggle menu on mobile vesrion after click
+  }; // const to hide toggle menu on mobile version after click
 
   return (
     <div className="smart-home__navbar">
@@ -44,6 +50,14 @@ const Navbar = () => {
       <div className="smart-home__navbar-sign">
         {currentUser ? ( // Check if the user is logged in
           <>
+            <NavLink className="link" to="/Cart">
+              <FaShoppingCart
+                size={24}
+                style={{ marginLeft: 5 }}
+                onClick={hideMenu}
+              />
+              <p>{totalQuantity}</p>
+            </NavLink>
             <NavLink to="/MyAccount">
               <img
                 src={currentUser.photoURL || require("../../assets/avatar.jpg")}
@@ -55,6 +69,14 @@ const Navbar = () => {
           </>
         ) : (
           <>
+            <NavLink className="link" to="/Cart">
+              <FaShoppingCart
+                size={24}
+                style={{ marginLeft: 5 }}
+                onClick={hideMenu}
+              />
+              <p>{totalQuantity}</p>
+            </NavLink>
             <NavLink to="/SignIn">
               <p>Log in</p>
             </NavLink>

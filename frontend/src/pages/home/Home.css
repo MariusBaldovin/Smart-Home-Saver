@@ -1,42 +1,42 @@
 .home-container {
-    background-color: #E8E8E8;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+  background-color: #e8e8e8;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  min-height: 78.1vh;
 }
 
 .left-panel {
-    width: 50%;
-    text-align: center;
+  width: 50%;
+  text-align: center;
 }
 
 .home_image {
-    width: 80%;
-    filter: drop-shadow(16px 16px 20px #5B795C);
-
+  width: 80%;
+  filter: drop-shadow(16px 16px 20px #5b795c);
 }
 
 .right-panel {
-    width: 50%;
+  width: 50%;
 }
 
 .left-panel h2 {
-    text-transform: uppercase;
-    color: #646c83;
+  text-transform: uppercase;
+  color: #646c83;
 }
 
 .submit-button {
-    width: 150px;
-    font-size: 15px;
-    padding: 10px 20px;
-    color: #5b795c;
-    border: 2px solid;
-    border-color: #5a795c;
-    border-radius: 20px;
-    cursor: pointer;
+  width: 150px;
+  font-size: 15px;
+  padding: 10px 20px;
+  color: #5b795c;
+  border: 2px solid;
+  border-color: #5a795c;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .submit-button:hover {
-    background-color: #4CAF50;
-    color: #ffffff;
+  background-color: #4caf50;
+  color: #ffffff;
 }

@@ -1,0 +1,25 @@
+.hue-container {
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+
+.login-logout-button {
+
+    height: 40px;
+    width: 111px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #5b795c;
+    border: 2px solid;
+    border-color: #5a795c;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.login-logout-button:hover {
+    background-color: #4CAF50;
+    color: #E8E8E8;
+}

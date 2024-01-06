@@ -17,12 +17,16 @@ import {
 } from "./components/index";
 import "./App.css";
 import { AuthContextProvider } from "./context/Authcontext";
+import { CartProvider } from "./context/CartContext"; // Import CartProvider
+import Cart from "./pages/cart/Cart";
 
 const App = () => {
   return (
-    <>
-      <Router>
-        <AuthContextProvider>
+    <AuthContextProvider>
+      <CartProvider>
+        {" "}
+        {/* Wrap your components with CartProvider */}
+        <Router>
           <NavBar />
           <Routes>
             <Route exact path="/" element={<Home />} />
@@ -31,18 +35,18 @@ const App = () => {
             <Route path="/SavingTips" element={<SavingTips />} />
             <Route path="/Chat" element={<Chat />} />
             <Route path="/AboutUs" element={<AboutUs />} />
+            <Route path="/Cart" element={<Cart />} />
             <Route path="/SignUp" element={<SignUp />} />
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/ResetPassword" element={<ResetPassword />} />
             <Route path="/MyAccount" element={<MyAccount />} />
-            // Catch all unmatched routes
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </AuthContextProvider>
-
-        <Footer />
-      </Router>
-    </>
+          <Footer />
+        </Router>
+      </CartProvider>
+    </AuthContextProvider>
   );
 };
+
 export default App;

@@ -67,7 +67,7 @@ const ThermostatSchedule = ({ forecastData }) => {
   };
 
   return (
-    <div classname="thermostat-schedule-container">
+    <div className="thermostat-schedule-container">
       <h3>Set time interval when nobody is home</h3>
       <div className="time_interval-input">
         <input

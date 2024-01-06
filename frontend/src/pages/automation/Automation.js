@@ -6,6 +6,7 @@ import Weather from "../../components/weather/Weather";
 import Forecast from "../../components/forecast/Forecast";
 import Netatmo from "../../components/netatmo_thermostat/Netatmo";
 import ThermostatSchedule from "../../components/thermostat_schedule/ThermostatSchedule";
+import PhilipsHue from "../../components/philips_hue/PhilipsHue";
 
 const Automation = () => {
   const [coordinates, setCoordinates] = useState(null);
@@ -37,6 +38,9 @@ const Automation = () => {
       </Frame>
       <Frame id="frame4" title="Recommended Thermostat Temperature">
         {forecastData && <ThermostatSchedule forecastData={forecastData} />}
+      </Frame>
+      <Frame id="frame4" title="philipshue">
+        <PhilipsHue />
       </Frame>
     </div>
   );
