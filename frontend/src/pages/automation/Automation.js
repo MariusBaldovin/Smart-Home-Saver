@@ -4,9 +4,11 @@ import Frame from "../../components/frame/Frame";
 import Location from "../../components/location/Location";
 import Weather from "../../components/weather/Weather";
 import Forecast from "../../components/forecast/Forecast";
-import Netatmo from "../../components/netatmo_thermostat/Netatmo";
+import RequireAuth from "../../utils/RequireAuth";
+
 import ThermostatSchedule from "../../components/thermostat_schedule/ThermostatSchedule";
-import PhilipsHue from "../../components/philips_hue/PhilipsHue";
+
+import SmartMeterInput from "../../components/smart_meter_input/SmartMeterInput";
 
 const Automation = () => {
   const [coordinates, setCoordinates] = useState(null);
@@ -30,9 +32,7 @@ const Automation = () => {
           </div>
         </div>
       </Frame>
-      <Frame id="frame2" title="Thermostat Control Panel">
-        <Netatmo />
-      </Frame>
+      <Frame id="frame2" title="Thermostat Control Panel"></Frame>
       <Frame id="frame3" title={`Forecast for ${firstDate} - ${lastDate}`}>
         <>
           {coordinates && (
@@ -48,9 +48,6 @@ const Automation = () => {
         title={`Create your Thermostat Schedule for ${firstDate} - ${lastDate}`}
       >
         {forecastData && <ThermostatSchedule forecastData={forecastData} />}
-      </Frame>
-      <Frame id="frame4" title="philipshue">
-        <PhilipsHue />
       </Frame>
     </div>
   );

@@ -1,0 +1,6 @@
+.energy-tracker-container {
+    background-color: #E8E8E8;
+    padding: 20px;
+    min-height: calc(100vh - 160px);
+
+}

@@ -8,7 +8,7 @@ import {
   Devices,
   Home,
   NotFound,
-  SavingTips,
+  EnergyTracker,
   AboutUs,
   MyAccount,
   SignUp,
@@ -25,14 +25,13 @@ const App = () => {
     <AuthContextProvider>
       <CartProvider>
         {" "}
-        {/* Wrap your components with CartProvider */}
         <Router>
           <NavBar />
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/Devices" element={<Devices />} />
             <Route path="/Automation" element={<Automation />} />
-            <Route path="/SavingTips" element={<SavingTips />} />
+            <Route path="/EnergyTracker" element={<EnergyTracker />} />
             <Route path="/Chat" element={<Chat />} />
             <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/Cart" element={<Cart />} />

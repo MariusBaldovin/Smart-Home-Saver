@@ -37,7 +37,7 @@ const Navbar = () => {
             <NavLink to="/Automation">Automation</NavLink>
           </p>
           <p>
-            <NavLink to="/SavingTips">Saving Tips</NavLink>
+            <NavLink to="/EnergyTracker">Energy Tracker</NavLink>
           </p>
           <p>
             <NavLink to="/Chat">Chat</NavLink>
@@ -113,7 +113,7 @@ const Navbar = () => {
                 <NavLink to="/Automation">Automation</NavLink>
               </p>
               <p onClick={hideMenu}>
-                <NavLink to="/SavingTips">Saving Tips</NavLink>
+                <NavLink to="/EnergyTracker">Saving Tips</NavLink>
               </p>
               <p onClick={hideMenu}>
                 <NavLink to="/Chat">Chat</NavLink>

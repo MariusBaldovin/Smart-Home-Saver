@@ -1,0 +1,157 @@
+.meter-input-container {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    min-height: calc(100vh - 160px);
+
+}
+
+.meter-input-container h2 {
+    text-align: center;
+    color: #646c83;
+
+}
+
+.meter-input-cost {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.cost {
+    margin-top: 30px;
+    padding: 10px 15px;
+
+}
+
+.cost label {
+    font-size: 18px;
+    min-width: 100px;
+}
+
+
+.cost input {
+    padding: 10px 15px;
+    width: 150px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin: 0 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.cost input:focus {
+    outline: none;
+    border-color: #8fbc90;
+    box-shadow: 0 0 0 2px #5b795c;
+}
+
+.submit_button {
+    text-align: center;
+}
+
+.meter-input-container button {
+    height: 40px;
+    width: auto;
+    font-size: 16px;
+    font-weight: 700;
+    color: #5b795c;
+    border: 2px solid;
+    border-color: #5a795c;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    padding: 10px;
+}
+
+.meter-input-container button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.success-message {
+    color: green;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+
+/* Tablet Responsiveness */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .meter-input-container {
+        grid-template-columns: 1fr;
+        /* Stack the columns for smaller screens */
+        padding: 15px;
+    }
+
+    .cost {
+        padding: 8px 10px;
+    }
+
+    .cost input {
+        width: 120px;
+        /* Adjust width for tablet size */
+        padding: 8px 10px;
+        font-size: 18px;
+    }
+
+    .submit_button button {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .success-message {
+        font-size: 18px;
+    }
+}
+
+/* Mobile Phone Responsiveness */
+@media (max-width: 600px) {
+    .meter-input-container {
+        grid-template-columns: 1fr;
+        /* Stack the columns for smaller screens */
+        padding: 10px;
+    }
+
+    .cost {
+        padding: 5px 8px;
+    }
+
+    .cost input {
+        width: 100px;
+        /* Adjust width for mobile size */
+        padding: 6px 8px;
+        font-size: 16px;
+    }
+
+    .submit_button button {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .success-message {
+        font-size: 16px;
+    }
+}

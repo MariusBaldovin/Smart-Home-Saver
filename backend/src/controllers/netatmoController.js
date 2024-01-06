@@ -37,7 +37,7 @@ const callback = async (req, res) => {
 
     globalToken = tokenResponse.data;
     res.redirect(
-      `http://localhost:3000/Automation?token=${globalToken.access_token}`
+      `http://localhost:3000/MyAccount?token=${globalToken.access_token}`
     );
   } catch (error) {
     console.error("Error during token exchange:", error);
