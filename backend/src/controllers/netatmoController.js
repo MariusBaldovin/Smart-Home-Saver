@@ -35,8 +35,9 @@ const callback = async (req, res) => {
 
     res.cookie("netatmo_token", tokenResponse.data.access_token, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
+      secure: true,
+      sameSite: "None",
+      domain: "effervescent-snickerdoodle-36e7a5.netlify.app",
     });
     res.redirect(
       `https://effervescent-snickerdoodle-36e7a5.netlify.app/MyAccount`
