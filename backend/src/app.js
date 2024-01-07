@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const netatmoRoutes = require("./routes/netatmoRoutes");
 const chatGptRoutes = require("./routes/chatGptRoutes");
@@ -8,7 +7,12 @@ const philipsHueRoutes = require("./routes/philipsHueRoutes");
 
 const app = express();
 
-// Allowed origins for CORS
+const corsOptions = {
+  origin: "https://effervescent-snickerdoodle-36e7a5.netlify.app",
+  credentials: true, // To allow cookies to be sent
+};
+
+/* // Allowed origins for CORS
 const allowedOrigins = [
   "https://effervescent-snickerdoodle-36e7a5.netlify.app/", // Replace with your actual Netlify domain
   "http://localhost:3000", // Local development
@@ -24,7 +28,7 @@ const corsOptions = {
     }
   },
   credentials: true, // To allow cookies to be sent
-};
+}; */
 
 app.use(cors(corsOptions));
 app.use(express.json());
