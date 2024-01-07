@@ -44,7 +44,7 @@ const Chat = () => {
     const systemMessage = {
       role: "system",
       content:
-        "You are smart home devices specialist, you know about netatmo smart thermostat and philips hue smart lights. Your answers must be very short maximum 40 words, and language should be simple and use uk dictionary ",
+        "You are smart home devices specialist. Your answers must be very short maximum 40 words, and language should be simple and use uk dictionary ",
     };
 
     const apiRequestBody = {

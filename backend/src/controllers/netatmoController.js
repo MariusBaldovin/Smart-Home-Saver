@@ -6,8 +6,6 @@ const {
   REDIRECT_URI,
 } = require("../config");
 
-let globalToken = null;
-
 //NETATMO AUTHENTICATION
 const authenticate = (req, res) => {
   const state = generateUniqueState();
@@ -17,7 +15,7 @@ const authenticate = (req, res) => {
   res.redirect(authUrl);
 };
 
-//CALLBACK AFTER SUCCESFULLY AUTHENTICATION
+// Callback after successful authentication
 const callback = async (req, res) => {
   try {
     const code = req.query.code;
@@ -35,10 +33,12 @@ const callback = async (req, res) => {
       }
     );
 
-    globalToken = tokenResponse.data;
-    res.redirect(
-      `http://localhost:3000/MyAccount?token=${globalToken.access_token}`
-    );
+    res.cookie("netatmo_token", tokenResponse.data.access_token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "strict",
+    });
+    res.redirect(`http://localhost:3000/MyAccount`);
   } catch (error) {
     console.error("Error during token exchange:", error);
     res.status(500).json({ error: "Error during token exchange" });
@@ -47,14 +47,15 @@ const callback = async (req, res) => {
 
 //HOMESTATUS TO GET ALL INFORMATION FROM THERMOSTAT
 const getTemperature = async (req, res) => {
-  if (!globalToken) {
+  const token = req.cookies["netatmo_token"];
+  if (!token) {
     return res.status(401).json({ error: "Not authenticated" });
   }
 
   try {
     const response = await axios.get("https://api.netatmo.com/api/homestatus", {
       params: {
-        access_token: globalToken.access_token,
+        access_token: token,
         home_id: req.params.homeId,
       },
     });
@@ -69,13 +70,14 @@ const getTemperature = async (req, res) => {
 
 //HOMESDATA TO RETRIEVE HOME ID
 const getHomes = async (req, res) => {
-  if (!globalToken) {
+  const token = req.cookies["netatmo_token"];
+  if (!token) {
     return res.status(401).json({ error: "Not authenticated" });
   }
 
   try {
     const response = await axios.get("https://api.netatmo.com/api/homesdata", {
-      params: { access_token: globalToken.access_token },
+      params: { access_token: token },
     });
 
     res.json(response.data.body.homes);
@@ -87,13 +89,14 @@ const getHomes = async (req, res) => {
 
 // Endpoint to change the temperature
 const setTemperature = async (req, res) => {
-  if (!globalToken) {
+  const token = req.cookies["netatmo_token"];
+  if (!token) {
     return res.status(401).json({ error: "Not authenticated" });
   }
 
   try {
     await axios.post("https://api.netatmo.com/api/setroomthermpoint", {
-      access_token: globalToken.access_token,
+      access_token: token,
       home_id: req.body.homeId,
       room_id: req.body.roomId,
       mode: "manual",
@@ -107,10 +110,36 @@ const setTemperature = async (req, res) => {
   }
 };
 
+// Logout endpoint
+const logout = (req, res) => {
+  res.clearCookie("netatmo_token");
+  res.status(200).json({ message: "Logged out" });
+};
+
+//Check if user is authenticated or not
+const checkAuth = (req, res) => {
+  console.log("Received request for authentication check");
+  if (req.cookies) {
+    console.log("Cookies:", req.cookies);
+  } else {
+    console.log("No cookies found in the request");
+  }
+
+  if (req.cookies && req.cookies["netatmo_token"]) {
+    console.log("User is authenticated");
+    res.status(200).json({ message: "Authenticated" });
+  } else {
+    console.log("User is not authenticated");
+    res.status(401).json({ message: "Not authenticated" });
+  }
+};
+
 module.exports = {
   authenticate,
   callback,
   getTemperature,
   getHomes,
   setTemperature,
+  logout,
+  checkAuth,
 };

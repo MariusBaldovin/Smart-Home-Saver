@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Netatmo.css";
 
@@ -21,40 +22,42 @@ const Netatmo = () => {
   // State to store any errors
   const [error, setError] = useState(null);
 
-  // useEffect hook to handle authentication and token retrieval
-  useEffect(() => {
-    const storedToken = sessionStorage.getItem("netatmo_token");
-    if (storedToken) {
-      setIsAuthenticated(true);
-      fetchHomes(storedToken);
-    } else {
-      // Extracting token from URL parameters
-      const urlParams = new URLSearchParams(window.location.search);
-      const token = urlParams.get("token");
+  const navigate = useNavigate();
 
-      if (token) {
-        sessionStorage.setItem("netatmo_token", token);
+  // Check authentication status
+  useEffect(() => {
+    console.log("Checking authentication status...");
+    axios
+      .get(`${process.env.REACT_APP_LOCALHOST_URL}/api/checkAuth`, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        console.log("Authentication check successful:", response);
         setIsAuthenticated(true);
-        fetchHomes(token);
-      } else {
-        setIsLoading(false);
-      }
-    }
+        fetchHomes();
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 401) {
+          setIsAuthenticated(false);
+          setIsLoading(false);
+        } else {
+          setError(error);
+        }
+      });
   }, []);
 
   // Function to fetch homes data
-  const fetchHomes = (token) => {
+  const fetchHomes = () => {
     setIsLoading(true);
     axios
-      .get("http://localhost:3001/api/homes", {
-        headers: { Authorization: `Bearer ${token}` },
+      .get(`${process.env.REACT_APP_LOCALHOST_URL}/api/homes`, {
+        withCredentials: true,
       })
       .then((response) => {
         setHomes(response.data);
         setIsLoading(false);
         if (response.data.length > 0) {
           setSelectedHomeId(response.data[0].id);
-          console.log("HOME ID IS:", response.data[0].id);
         }
       })
       .catch((error) => {
@@ -64,20 +67,12 @@ const Netatmo = () => {
       });
   };
 
-  // useEffect hook to fetch temperature data when selectedHomeId changes
-  useEffect(() => {
-    if (selectedHomeId) {
-      const token = sessionStorage.getItem("netatmo_token");
-      fetchTemperature(token, selectedHomeId);
-    }
-  }, [selectedHomeId]);
-
   // Function to fetch temperature data
-  const fetchTemperature = (token, homeId) => {
+  const fetchTemperature = (homeId) => {
     setIsLoading(true);
     axios
-      .get(`http://localhost:3001/api/temperature/${homeId}`, {
-        headers: { Authorization: `Bearer ${token}` },
+      .get(`${process.env.REACT_APP_LOCALHOST_URL}/api/temperature/${homeId}`, {
+        withCredentials: true,
       })
       .then((response) => {
         setTemperature(response.data);
@@ -90,10 +85,10 @@ const Netatmo = () => {
       });
   };
 
+  // useEffect hook to fetch temperature data when selectedHomeId changes
   useEffect(() => {
     if (selectedHomeId) {
-      const token = sessionStorage.getItem("netatmo_token");
-      fetchTemperature(token, selectedHomeId);
+      fetchTemperature(selectedHomeId);
     }
   }, [selectedHomeId]);
 
@@ -104,8 +99,17 @@ const Netatmo = () => {
 
   const handleLoginLogout = () => {
     if (isAuthenticated) {
-      sessionStorage.removeItem("netatmo_token");
-      setIsAuthenticated(false);
+      axios
+        .get(`${process.env.REACT_APP_LOCALHOST_URL}/api/logout`, {
+          withCredentials: true,
+        })
+        .then(() => {
+          setIsAuthenticated(false);
+          navigate("/MyAccount");
+        })
+        .catch((error) => {
+          console.error("Logout error:", error);
+        });
     } else {
       window.location.href = "http://localhost:3001/auth/netatmo";
     }

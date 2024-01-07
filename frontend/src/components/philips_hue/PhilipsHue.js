@@ -25,7 +25,7 @@ const PhilipsHue = () => {
     try {
       // Create user
       const userResponse = await axios.post(
-        `http://localhost:3001/createUser`,
+        `${process.env.REACT_APP_LOCALHOST_URL}/createUser`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -37,7 +37,7 @@ const PhilipsHue = () => {
 
       // Fetch lights with the new username
       const lightsResponse = await axios.get(
-        `http://localhost:3001/lights?username=${username}`,
+        `${process.env.REACT_APP_LOCALHOST_URL}/lights?username=${username}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -56,7 +56,7 @@ const PhilipsHue = () => {
       sessionStorage.removeItem("hue_token");
       setIsAuthenticated(false);
     } else {
-      window.location.href = `http://localhost:3001/auth/philips`;
+      window.location.href = `${process.env.REACT_APP_LOCALHOST_URL}/auth/philips`;
     }
   };
 
