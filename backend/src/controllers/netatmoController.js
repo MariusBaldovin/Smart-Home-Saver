@@ -39,7 +39,7 @@ const callback = async (req, res) => {
       sameSite: "strict",
     });
     res.redirect(
-      `https://659b08189ed589cd22611c47--effervescent-snickerdoodle-36e7a5.netlify.app//MyAccount`
+      `https://659b08189ed589cd22611c47--effervescent-snickerdoodle-36e7a5.netlify.app/MyAccount`
     );
   } catch (error) {
     console.error("Error during token exchange:", error);
