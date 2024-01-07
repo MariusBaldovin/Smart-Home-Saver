@@ -13,6 +13,8 @@ import {
 } from "firebase/firestore";
 import "./SmartMeterInput.css";
 import Frame from "../../components/frame/Frame";
+import { processEntries } from "../../utils/ProcessEntries";
+import EnergyUsageChart from "../../components/chart/EnergyUsageChart";
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
@@ -25,6 +27,19 @@ function SmartMeterInput() {
   const [dataEntries, setDataEntries] = useState([]);
   const { currentUser } = useAuth();
 
+  //retrieved from ProcessEntries.js to calculate total daily, weekly and monthly energy used
+  const {
+    dailyTotalElectricity,
+    dailyTotalGas,
+    weeklyTotalElectricity,
+    weeklyTotalGas,
+    monthlyTotalElectricity,
+    monthlyTotalGas,
+    weeklyChartData, // Make sure this is always an array
+    monthlyChartData, // Make sure this is always an array
+  } = processEntries(dataEntries);
+
+  //adding the user input into Firestore database collection
   const handleSubmit = async (e) => {
     e.preventDefault();
     const now = new Date();
@@ -50,7 +65,7 @@ function SmartMeterInput() {
     try {
       await addDoc(collection(db, "energyData"), data);
       setSuccessMessage("Energy cost added successfully!");
-      // Oclear the form fields
+      // clear the form fields
       setElectricityCost("");
       setGasCost("");
     } catch (error) {
@@ -85,6 +100,11 @@ function SmartMeterInput() {
 
     return () => unsubscribe();
   }, [currentUser]);
+
+  let processedData = {};
+  if (dataEntries && dataEntries.length > 0) {
+    processedData = processEntries(dataEntries);
+  }
 
   return (
     <div className="meter-input-container">
@@ -121,6 +141,25 @@ function SmartMeterInput() {
         {successMessage && (
           <div className="success-message">{successMessage}</div>
         )}{" "}
+        <div className="totals">
+          <h3>Total Energy Costs</h3>
+          <p>Daily Electricity: £{dailyTotalElectricity}</p>
+          <p>Daily Gas: £{dailyTotalGas}</p>
+          <p>Weekly Electricity: £{weeklyTotalElectricity}</p>
+          <p>Weekly Gas: £{weeklyTotalGas}</p>
+          <p>Monthly Electricity: £{monthlyTotalElectricity}</p>
+          <p>Monthly Gas: £{monthlyTotalGas}</p>
+        </div>
+        <div className="meter-input-container">
+          <Frame>
+            <h2>Weekly Energy Usage</h2>
+            <EnergyUsageChart data={weeklyChartData} type="weekly" />
+          </Frame>
+          <Frame>
+            <h2>Monthly Energy Usage</h2>
+            <EnergyUsageChart data={monthlyChartData} type="monthly" />
+          </Frame>
+        </div>
       </Frame>
       <Frame>
         <h2>Monthly Energy Costs</h2>
