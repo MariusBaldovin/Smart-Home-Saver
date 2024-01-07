@@ -38,7 +38,9 @@ const callback = async (req, res) => {
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
     });
-    res.redirect(`http://localhost:3000/MyAccount`);
+    res.redirect(
+      `https://659b08189ed589cd22611c47--effervescent-snickerdoodle-36e7a5.netlify.app//MyAccount`
+    );
   } catch (error) {
     console.error("Error during token exchange:", error);
     res.status(500).json({ error: "Error during token exchange" });
