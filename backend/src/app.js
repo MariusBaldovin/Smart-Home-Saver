@@ -8,7 +8,10 @@ const philipsHueRoutes = require("./routes/philipsHueRoutes");
 const app = express();
 
 const corsOptions = {
-  origin: "https://effervescent-snickerdoodle-36e7a5.netlify.app",
+  origin: [
+    "https://smart-home-saver-frontend.onrender.com", // Frontend domain
+    "http://localhost:3000", // Local development
+  ],
   credentials: true, // To allow cookies to be sent
 };
 

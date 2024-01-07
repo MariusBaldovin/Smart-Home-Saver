@@ -37,11 +37,9 @@ const callback = async (req, res) => {
       httpOnly: true,
       secure: true,
       sameSite: "None",
-      domain: "effervescent-snickerdoodle-36e7a5.netlify.app",
+      domain: ".onrender.com",
     });
-    res.redirect(
-      `https://effervescent-snickerdoodle-36e7a5.netlify.app/MyAccount`
-    );
+    res.redirect(`https://smart-home-saver-frontend.onrender.com/MyAccount`);
   } catch (error) {
     console.error("Error during token exchange:", error);
     res.status(500).json({ error: "Error during token exchange" });
