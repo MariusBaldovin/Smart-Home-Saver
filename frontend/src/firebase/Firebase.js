@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+//import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 
 // Only call getAnalytics if measurementId exists
 if (process.env.REACT_APP_FIREBASE_MEASUREMENT_ID) {
-  const analytics = getAnalytics(app);
+  //const analytics = getAnalytics(app);
 }
 
 export const auth = getAuth(app);

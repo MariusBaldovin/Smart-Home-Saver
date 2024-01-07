@@ -8,7 +8,7 @@ const Netatmo = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   // State to store homes data fetched from the API
-  const [homes, setHomes] = useState([]);
+  const [, setHomes] = useState([]);
 
   // State to store the ID of the selected home
   const [selectedHomeId, setSelectedHomeId] = useState("");
@@ -92,10 +92,10 @@ const Netatmo = () => {
     }
   }, [selectedHomeId]);
 
-  // Function to handle home selection change
+  /* // Function to handle home selection change
   const handleHomeSelection = (e) => {
     setSelectedHomeId(e.target.value);
-  };
+  }; */
 
   const handleLoginLogout = () => {
     if (isAuthenticated) {
@@ -111,7 +111,7 @@ const Netatmo = () => {
           console.error("Logout error:", error);
         });
     } else {
-      window.location.href = "http://localhost:3001/auth/netatmo";
+      window.location.href = `${process.env.REACT_APP_LOCALHOST_URL}/auth/netatmo`;
     }
   };
 

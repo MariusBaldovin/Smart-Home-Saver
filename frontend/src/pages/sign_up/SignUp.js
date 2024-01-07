@@ -18,7 +18,7 @@ const SignUp = () => {
   const [confirmPasswordErrors, setConfirmPasswordErrors] = useState({});
   //const to direct user to home page after creating account
   const navigate = useNavigate();
-  const { signUp, signInWithGoogle, signInWithFacebook } = useAuth(); // Use the useAuth hook for sign in with google and facebook
+  const { signInWithGoogle, signInWithFacebook } = useAuth(); // Use the useAuth hook for sign in with google and facebook
 
   const [errors, setErrors] = useState({});
 

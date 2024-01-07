@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth"; // Import the signInWithEmailAndPassword function
+//import { signInWithEmailAndPassword } from "firebase/auth"; // Import the signInWithEmailAndPassword function
 import { useAuth } from "../../context/Authcontext"; // Import the useAuth hook for authentication
 import "./SignIn.css";
 import { FaGoogle } from "react-icons/fa";

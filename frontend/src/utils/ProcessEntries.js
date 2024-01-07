@@ -1,7 +1,5 @@
 import {
   parse,
-  startOfWeek,
-  startOfMonth,
   eachWeekOfInterval,
   eachMonthOfInterval,
   isSameDay,

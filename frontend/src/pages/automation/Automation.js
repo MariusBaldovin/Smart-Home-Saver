@@ -4,11 +4,7 @@ import Frame from "../../components/frame/Frame";
 import Location from "../../components/location/Location";
 import Weather from "../../components/weather/Weather";
 import Forecast from "../../components/forecast/Forecast";
-import RequireAuth from "../../utils/RequireAuth";
-
 import ThermostatSchedule from "../../components/thermostat_schedule/ThermostatSchedule";
-
-import SmartMeterInput from "../../components/smart_meter_input/SmartMeterInput";
 
 const Automation = () => {
   const [coordinates, setCoordinates] = useState(null);

@@ -101,10 +101,10 @@ function SmartMeterInput() {
     return () => unsubscribe();
   }, [currentUser]);
 
-  let processedData = {};
+  /*let processedData = {};
   if (dataEntries && dataEntries.length > 0) {
     processedData = processEntries(dataEntries);
-  }
+  }*/
 
   return (
     <div className="meter-input-container">

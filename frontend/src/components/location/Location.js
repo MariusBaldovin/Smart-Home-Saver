@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import "./Location.css";
 
@@ -17,24 +17,27 @@ const Location = ({ onCoordinates }) => {
   const [manualEntry, setManualEntry] = useState(false);
 
   // Function called when location is successfully retrieved
-  const onSuccess = async (location) => {
-    const { latitude, longitude } = location.coords;
-    // Update parent component's state with new coordinates
-    onCoordinates({ lat: latitude, lng: longitude });
+  const onSuccess = useCallback(
+    async (location) => {
+      const { latitude, longitude } = location.coords;
+      // Update parent component's state with new coordinates
+      onCoordinates({ lat: latitude, lng: longitude });
 
-    // Fetch address based on latitude and longitude
-    const address = await fetchAddress(latitude, longitude);
+      // Fetch address based on latitude and longitude
+      const address = await fetchAddress(latitude, longitude);
 
-    // Update state with loaded status, coordinates, and address
-    setLocation({
-      loaded: true,
-      coordinates: {
-        lat: latitude,
-        lng: longitude,
-      },
-      address,
-    });
-  };
+      // Update state with loaded status, coordinates, and address
+      setLocation({
+        loaded: true,
+        coordinates: {
+          lat: latitude,
+          lng: longitude,
+        },
+        address,
+      });
+    },
+    [onCoordinates]
+  );
 
   // Function called when there is an error in retrieving location
   const onError = (error) => {
@@ -57,7 +60,7 @@ const Location = ({ onCoordinates }) => {
     } else {
       navigator.geolocation.getCurrentPosition(onSuccess, onError);
     }
-  }, []);
+  }, [onSuccess]);
 
   // Function to fetch address using OpenStreetMap API
 
