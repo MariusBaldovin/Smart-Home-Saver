@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const session = require("express-session");
 const netatmoRoutes = require("./routes/netatmoRoutes");
-const chatGptRoutes = require("./routes/chatgptRoutes");
+const chatGptRoutes = require("./routes/chatGptRoutes");
 const philipsHueRoutes = require("./routes/philipsHueRoutes");
 
 const app = express();
