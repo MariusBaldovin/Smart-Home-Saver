@@ -9,8 +9,8 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    "https://smart-home-saver-frontend.onrender.com", // Frontend domain
-    "http://localhost:3000", // Local development
+    "https://smart-home-saver-frontend.onrender.com",
+    "http://localhost:3000",
   ],
   credentials: true, // To allow cookies to be sent
 };
