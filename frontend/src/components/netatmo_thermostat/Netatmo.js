@@ -28,7 +28,7 @@ const Netatmo = () => {
   useEffect(() => {
     console.log("Checking authentication status...");
     axios
-      .get(`${process.env.REACT_APP_LOCALHOST_URL}/api/checkAuth`, {
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/checkAuth`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -50,7 +50,7 @@ const Netatmo = () => {
   const fetchHomes = () => {
     setIsLoading(true);
     axios
-      .get(`${process.env.REACT_APP_LOCALHOST_URL}/api/homes`, {
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/homes`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -71,7 +71,7 @@ const Netatmo = () => {
   const fetchTemperature = (homeId) => {
     setIsLoading(true);
     axios
-      .get(`${process.env.REACT_APP_LOCALHOST_URL}/api/temperature/${homeId}`, {
+      .get(`${process.env.REACT_APP_BACKEND_URL}/api/temperature/${homeId}`, {
         withCredentials: true,
       })
       .then((response) => {
@@ -100,7 +100,7 @@ const Netatmo = () => {
   const handleLoginLogout = () => {
     if (isAuthenticated) {
       axios
-        .get(`${process.env.REACT_APP_LOCALHOST_URL}/api/logout`, {
+        .get(`${process.env.REACT_APP_BACKEND_URL}/api/logout`, {
           withCredentials: true,
         })
         .then(() => {
@@ -111,7 +111,7 @@ const Netatmo = () => {
           console.error("Logout error:", error);
         });
     } else {
-      window.location.href = `${process.env.REACT_APP_LOCALHOST_URL}/auth/netatmo`;
+      window.location.href = `${process.env.REACT_APP_BACKEND_URL}/auth/netatmo`;
     }
   };
 
