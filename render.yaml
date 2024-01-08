@@ -2,7 +2,7 @@ services:
   - type: web
     name: smart-home-saver-frontend
     env: static
-    buildCommand: npm run build
+    buildCommand: cd frontend && npm run build
     startCommand: serve -s build
     staticPublishPath: ./frontend/build
     routes:

@@ -15,24 +15,6 @@ const corsOptions = {
   credentials: true, // To allow cookies to be sent
 };
 
-/* // Allowed origins for CORS
-const allowedOrigins = [
-  "https://effervescent-snickerdoodle-36e7a5.netlify.app/", // Replace with your actual Netlify domain
-  "http://localhost:3000", // Local development
-];
-
-// CORS configuration
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true, // To allow cookies to be sent
-}; */
-
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
