@@ -38,8 +38,8 @@ const callback = async (req, res) => {
       secure: true,
       sameSite: "None",
     });
-    res.redirect(`https://smart-home-saver-frontend.onrender.com/MyAccount`);
-    //res.redirect(`http://localhost:3000/MyAccount`);
+
+    res.redirect(`${process.env.FRONTEND_URL}/MyAccount`);
   } catch (error) {
     console.error("Error during token exchange:", error);
     res.status(500).json({ error: "Error during token exchange" });
