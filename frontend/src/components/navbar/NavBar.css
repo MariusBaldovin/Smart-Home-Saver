@@ -3,7 +3,6 @@
   justify-content: space-between;
   align-items: center;
   background-color: #5b795c;
-  padding: 0 2em 0 2em;
   height: 80px;
   overflow: hidden;
 }
@@ -33,6 +32,12 @@
   transition: fill ease-in 0.3s;
 }
 
+/* active link colour #af1904 */
+.smart-home__navbar-links_container a.active,
+.smart-home__navbar-menu_container a.active {
+  color: #4caf50;
+}
+
 .smart-home__navbar-sign {
   display: flex;
   justify-content: flex-end;
@@ -56,10 +61,10 @@
   color: #c1d4c1;
   font-family: var(--font-family);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 25px;
   text-transform: capitalize;
-  margin: 0 1rem;
+  margin: 0 0.5rem;
   cursor: pointer;
 }
 
@@ -85,6 +90,23 @@
   background-color: #4caf50;
   color: white;
   transition: fill ease-in 0.3s;
+}
+
+.sign-out {
+  background-color: white;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  fill: black;
+  transition: fill ease-in 0.3s;
+
+}
+
+.sign-out:hover {
+  background-color: #4caf50;
+  color: white;
+  fill: white;
+  border-radius: 0%;
 }
 
 .smart-home__navbar-menu {
@@ -125,7 +147,7 @@
   display: none;
 }
 
-/* Style for the user profile picture */
+/* user profile picture */
 .user-profile-picture {
   width: 40px;
   /* Adjust size as needed */
@@ -135,19 +157,30 @@
   /* Circular shape */
   object-fit: cover;
   /* Keep aspect ratio */
-  margin-right: 10px;
+  margin-right: 0px;
   /* Space between image and sign out button */
   border: 2px solid white;
   /* Optional: adds a white border around the image */
+}
+
+.user-profile-picture:hover {
+  transform: scale(1.1);
+  /* Scale up the image on hover */
+  border-color: #4caf50;
+  /* Change border color on hover */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* Add a subtle box shadow on hover */
 }
 
 .link {
   text-decoration: none;
   color: white;
   font-weight: 300;
+
 }
 
-.link > p {
+
+.link>p {
   display: inline-block;
   position: relative;
   text-align: center;
@@ -159,8 +192,8 @@
   border: 1px solid white;
   color: white;
   font-size: 0.8em;
-  top: -1rem;
-  left: -0.9rem;
+  top: -0.3rem;
+  left: -0.2rem;
   pointer-events: none;
 }
 
@@ -208,8 +241,29 @@
   }
 }
 
-/* avtive link colour #af1904 */
-.smart-home__navbar-links_container a.active,
-.smart-home__navbar-menu_container a.active {
-  color: #4caf50;
+
+.my-account-sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.my-account-sign:last-child {
+  margin-left: 10px;
+  /* Additional margin for the basket icon */
+}
+
+.my-account-text {
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.basket-label {
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  margin-top: 5px;
 }

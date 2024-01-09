@@ -6,6 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../context/Authcontext"; // Import the useAuth hook
 import { useCart } from "../../context/CartContext";
 import { FaShoppingCart } from "react-icons/fa";
+import { RiLogoutCircleLine } from "react-icons/ri";
 
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -20,6 +21,7 @@ const Navbar = () => {
 
   return (
     <div className="smart-home__navbar">
+      {/*Navbar links*/}
       <div className="smart-home__navbar-links">
         <div className="smart-home__navbar-links_logo">
           <Link to="/">
@@ -47,42 +49,115 @@ const Navbar = () => {
           </p>
         </div>
       </div>
+
+      {/*Sign In, Sign Out, Basket elements*/}
       <div className="smart-home__navbar-sign">
         {currentUser ? ( // Check if the user is logged in
           <>
-            <NavLink className="link" to="/Cart">
-              <FaShoppingCart
-                size={24}
-                style={{ marginLeft: 5 }}
-                onClick={hideMenu}
+            <div className="my-account-sign">
+              <NavLink to="/MyAccount">
+                <img
+                  src={
+                    currentUser.photoURL || require("../../assets/avatar.jpg")
+                  }
+                  alt="User"
+                  className="user-profile-picture"
+                />
+              </NavLink>
+              <div className="my-account-text">My Devices</div>
+            </div>
+
+            <div className="my-account-sign">
+              <RiLogoutCircleLine
+                onClick={signOut}
+                style={{
+                  backgroundColor: "white",
+                  cursor: "pointer",
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "20px",
+                  transition: "fill ease-in 0.3s, color ease-in 0.3s",
+                }}
+                fill="black"
+                color="black"
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = "#4caf50";
+                  e.currentTarget.style.fill = "white";
+                  e.currentTarget.style.color = "white";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "white";
+                  e.currentTarget.style.fill = "black";
+                  e.currentTarget.style.color = "black";
+                }}
               />
-              <p>{totalQuantity}</p>
-            </NavLink>
-            <NavLink to="/MyAccount">
-              <img
-                src={currentUser.photoURL || require("../../assets/avatar.jpg")}
-                alt="User"
-                className="user-profile-picture"
-              />
-            </NavLink>
-            <button onClick={signOut}>Sign Out</button>
+              <div className="my-account-text">Sign Out</div>
+            </div>
+
+            <div className="my-account-sign">
+              <NavLink className="link" to="/Cart">
+                <FaShoppingCart
+                  size={24}
+                  style={{ width: "40px", height: "40px" }}
+                  onClick={hideMenu}
+                />
+                <p>{totalQuantity}</p>
+              </NavLink>
+              <div className="my-account-text">Basket</div>
+            </div>
           </>
         ) : (
           <>
-            <NavLink className="link" to="/Cart">
-              <FaShoppingCart
-                size={24}
-                style={{ marginLeft: 5 }}
-                onClick={hideMenu}
+            <div className="my-account-sign">
+              <NavLink to="/SignIn">
+                <img
+                  src={require("../../assets/avatar.jpg")}
+                  alt="User"
+                  className="user-profile-picture"
+                />
+              </NavLink>
+              <div className="my-account-text">Sign In</div>
+            </div>
+            <div className="my-account-sign">
+              <RiLogoutCircleLine
+                onClick={signOut}
+                style={{
+                  backgroundColor: "white",
+                  cursor: "pointer",
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "20px",
+                  transition: "fill ease-in 0.3s, color ease-in 0.3s",
+                }}
+                fill="black"
+                color="black"
+                onMouseOver={(e) => {
+                  e.currentTarget.style.backgroundColor = "#4caf50";
+                  e.currentTarget.style.fill = "white";
+                  e.currentTarget.style.color = "white";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.backgroundColor = "white";
+                  e.currentTarget.style.fill = "black";
+                  e.currentTarget.style.color = "black";
+                }}
               />
-              <p>{totalQuantity}</p>
-            </NavLink>
-            <NavLink to="/SignIn">
-              <p>Log in</p>
-            </NavLink>
-            <NavLink to="/SignUp">
-              <button type="button">Sign up</button>
-            </NavLink>
+              <div className="my-account-text">Sign Out</div>
+            </div>
+            <div className="my-account-sign">
+              <NavLink className="link" to="/Cart">
+                <FaShoppingCart
+                  size={24}
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                  }}
+                  onClick={hideMenu}
+                />
+                <p>{totalQuantity}</p>
+              </NavLink>
+              <div className="basket-label">Basket</div>
+            </div>
           </>
         )}
       </div>
@@ -125,44 +200,112 @@ const Navbar = () => {
             <div className="smart-home__navbar-menu_container-links-sign">
               {currentUser ? ( // Check if the user is logged in for mobile version
                 <>
-                  <NavLink className="link" to="/Cart">
-                    <FaShoppingCart
-                      size={24}
-                      style={{ marginLeft: 5 }}
-                      onClick={hideMenu}
+                  <div onClick={hideMenu} className="my-account-sign">
+                    <NavLink to="/MyAccount">
+                      <img
+                        src={
+                          currentUser.photoURL ||
+                          require("../../assets/avatar.jpg")
+                        }
+                        alt="User"
+                        className="user-profile-picture"
+                      />
+                    </NavLink>
+                    <div className="my-account-text">My Devices</div>
+                  </div>
+                  <div onClick={hideMenu} className="my-account-sign">
+                    <RiLogoutCircleLine
+                      onClick={signOut}
+                      style={{
+                        backgroundColor: "white",
+                        cursor: "pointer",
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "20px",
+                        transition: "fill ease-in 0.3s, color ease-in 0.3s",
+                      }}
+                      fill="black"
+                      color="black"
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.backgroundColor = "#4caf50";
+                        e.currentTarget.style.fill = "white";
+                        e.currentTarget.style.color = "white";
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.backgroundColor = "white";
+                        e.currentTarget.style.fill = "black";
+                        e.currentTarget.style.color = "black";
+                      }}
                     />
-                    <p>{totalQuantity}</p>
-                  </NavLink>
-                  <NavLink to="/MyAccount">
-                    <img
-                      src={
-                        currentUser.photoURL ||
-                        require("../../assets/avatar.jpg")
-                      }
-                      alt="User"
-                      className="user-profile-picture"
-                    />
-                  </NavLink>
-                  <button onClick={signOut}>Sign Out</button>
+                    <div className="my-account-text">Sign Out</div>
+                  </div>
+                  <div className="my-account-sign">
+                    <NavLink className="link" to="/Cart">
+                      <FaShoppingCart
+                        size={24}
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                        }}
+                        onClick={hideMenu}
+                      />
+                      <p>{totalQuantity}</p>
+                    </NavLink>
+                    <div className="my-account-text">Basket</div>
+                  </div>
                 </>
               ) : (
                 <>
-                  <NavLink className="link" to="/Cart">
-                    <FaShoppingCart
-                      size={24}
-                      style={{ marginLeft: 5 }}
-                      onClick={hideMenu}
+                  <div onClick={hideMenu} className="my-account-sign">
+                    <NavLink to="/SignIn">
+                      <img
+                        src={require("../../assets/avatar.jpg")}
+                        alt="User"
+                        className="user-profile-picture"
+                      />
+                    </NavLink>
+                    <div className="my-account-text">Sign In</div>
+                  </div>
+                  <div className="my-account-sign">
+                    <RiLogoutCircleLine
+                      onClick={signOut}
+                      style={{
+                        backgroundColor: "white",
+                        cursor: "pointer",
+                        width: "40px",
+                        height: "40px",
+                        borderRadius: "20px",
+                        transition: "fill ease-in 0.3s, color ease-in 0.3s",
+                      }}
+                      fill="black"
+                      color="black"
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.backgroundColor = "#4caf50";
+                        e.currentTarget.style.fill = "white";
+                        e.currentTarget.style.color = "white";
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.backgroundColor = "white";
+                        e.currentTarget.style.fill = "black";
+                        e.currentTarget.style.color = "black";
+                      }}
                     />
-                    <p>{totalQuantity}</p>
-                  </NavLink>
-                  <NavLink to="/SignIn">
-                    <p onClick={hideMenu}>Log in</p>
-                  </NavLink>
-                  <NavLink to="/SignUp">
-                    <button type="button" onClick={hideMenu}>
-                      Sign up
-                    </button>
-                  </NavLink>
+                    <div className="my-account-text">Sign Out</div>
+                  </div>
+                  <div className="my-account-sign">
+                    <NavLink className="link" to="/Cart">
+                      <FaShoppingCart
+                        size={24}
+                        style={{
+                          width: "40px",
+                          height: "40px",
+                        }}
+                        onClick={hideMenu}
+                      />
+                      <p>{totalQuantity}</p>
+                    </NavLink>
+                    <div className="basket-label">Basket</div>
+                  </div>
                 </>
               )}
             </div>

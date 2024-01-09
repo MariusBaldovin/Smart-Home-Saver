@@ -2,16 +2,12 @@
 .chat-container {
     background-image: url(../../assets/chat_background.jpg);
     background-size: cover;
-    /* This will ensure that your image covers the entire element */
     background-repeat: no-repeat;
-    /* This prevents the image from repeating */
     background-position: center;
-    /* This centers your image in the element */
-
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: calc(100vh - 160px);
 }
 
 /* Styling the Chat Box */
@@ -21,7 +17,7 @@
     border-radius: 10px;
     margin: 20px;
     width: 900px;
-    max-height: 600px;
+    height: 500px;
     filter: drop-shadow(16px 16px 20px #5B795C);
 }
 
